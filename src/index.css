@@ -1,3 +1,49 @@
 * {
     margin: 0;
 }
+
+@font-face {
+    font-family: "Now";
+    src: local("Now"),
+        url(./fonts/Now.aff88efb3763c3feb78187285a9fecd51366.b74499867ba6732cd5bec1de52143c6e.otf)
+            format("woff");
+}
+@font-face {
+    font-family: "Now";
+    font-weight: 100;
+    src: local("Now"),
+        url(./fonts/Now\ Thin.e7294dc4baa950880eee379dac92493.a65e87fca8103ce114844856c203280c.otf)
+            format("woff");
+}
+@font-face {
+    font-family: "Now";
+    font-weight: 500;
+    src: local("Now"),
+        url(./fonts/Now\ Medium.077d450c8534d8ea5af831103d7c7.87a38abaecd993dc7f78a6b1a731e5c9.otf)
+            format("woff");
+}
+@font-face {
+    font-family: "Now";
+    font-weight: 300;
+    src: local("Now"),
+        url(./fonts/Now\ Light.5583d00ebed658740af5e9d3dec064.f3e4f71df13fa7245150f7b6993071f2.otf)
+            format("woff");
+}
+@font-face {
+    font-family: "Now";
+    font-weight: 700;
+    src: local("Now"),
+        url(./fonts/Now\ Bold.8bf380d586aa4d113773af255819b75.65cd16297a75fd8c71fe1c84f14ea8c1.otf)
+            format("woff");
+}
+@font-face {
+    font-family: "Now";
+    font-weight: 900;
+    src: local("Now"),
+        url(./fonts/Now\ Black.b92717ab2046bc7cc4d6755b247f8b.0ffe2fce002a37e0b8bbe5aae9e443c1.otf)
+            format("woff");
+}
+@font-face {
+    font-family: "Sego";
+    src: local("Sego"), url(./fonts/SEGO.otf) format("woff");
+}
