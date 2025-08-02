@@ -1,0 +1,28 @@
+$darkBlue: #333359;
+$darkerBlue: #1f202d;
+$neonRed: #ff4343;
+$neonOrange: #ff8e51;
+$neonYellow: #fff953;
+$neonGreen: #53ff67;
+$neonPurple: #e251ff;
+$blurple: #5965f1;
+$cyan: #36ffd7;
+$blue: #59b7f1;
+$neonBlue: #6590ff;
+$rainbowNeon: linear-gradient(
+    0deg,
+    $neonRed 0%,
+    $neonOrange 20%,
+    $neonYellow 40%,
+    $neonGreen 60%,
+    $neonBlue 80%,
+    $neonPurple 100%
+);
+$gradYellowBlue: linear-gradient(
+    0deg,
+    $neonYellow 0%,
+    $neonGreen 50%,
+    $neonBlue 100%
+);
+$gradBluePurple: linear-gradient(0deg, $neonBlue 0%, $neonPurple 100%);
+$gradRedYellow: linear-gradient(0deg, $neonRed 0%, $neonYellow 100%);

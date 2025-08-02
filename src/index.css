@@ -1,5 +1,11 @@
 * {
     margin: 0;
+    color: white;
+    font-family: "Now", sans-serif;
+
+    img {
+        height: 50px;
+    }
 }
 
 @font-face {

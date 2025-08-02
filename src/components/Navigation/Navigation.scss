@@ -1,0 +1,96 @@
+@import "../../_variables.scss";
+
+.navigation {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .logo {
+        height: 100px;
+        margin-left: 1rem;
+        margin-top: 1rem;
+    }
+
+    .navbar {
+        width: 750px;
+        position: absolute;
+        display: flex;
+        background: rgba($darkBlue, 0.8);
+        border-radius: 40px;
+        padding: 0.6rem 2.5rem;
+        justify-content: space-between;
+        align-items: center;
+        left: calc(50% - 375px);
+
+        .navigations {
+            display: flex;
+            justify-content: space-between;
+            flex-grow: 1;
+
+            div {
+                height: 100%;
+                p {
+                    font-size: 1.3rem;
+                    font-weight: 500;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .home p {
+                color: $neonRed;
+                text-shadow: 0px 0px 4px $neonRed;
+            }
+
+            .rewards p {
+                color: $neonOrange;
+                text-shadow: 0px 0px 4px $neonOrange;
+            }
+
+            .contact p {
+                color: $neonYellow;
+                text-shadow: 0px 0px 4px $neonYellow;
+            }
+
+            .socials p {
+                color: $neonGreen;
+                text-shadow: 0px 0px 4px $neonGreen;
+            }
+        }
+
+        .navLine {
+            width: 1px;
+            height: 50px;
+            background: $neonBlue;
+            margin: 0 2rem;
+            box-shadow: 0px 0px 4px 0px $neonBlue;
+        }
+
+        .signIn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background: $neonPurple;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            box-shadow: 0px 0px 4px 0px $neonPurple;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            img {
+                height: 30px;
+            }
+
+            p {
+                font-weight: 500;
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
