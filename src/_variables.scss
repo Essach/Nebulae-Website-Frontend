@@ -10,13 +10,14 @@ $cyan: #36ffd7;
 $blue: #59b7f1;
 $neonBlue: #6590ff;
 $rainbowNeon: linear-gradient(
-    0deg,
-    $neonRed 0%,
-    $neonOrange 20%,
-    $neonYellow 40%,
-    $neonGreen 60%,
-    $neonBlue 80%,
-    $neonPurple 100%
+    90deg,
+    $neonRed,
+    $neonOrange,
+    $neonYellow,
+    $neonGreen,
+    $neonBlue,
+    $neonPurple,
+    $neonRed
 );
 $gradYellowBlue: linear-gradient(
     0deg,
