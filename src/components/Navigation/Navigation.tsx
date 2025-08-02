@@ -24,7 +24,7 @@ const Navigation = () => {
                         </p>
                     </div>
                     <div className="rewards">
-                        {activeSection == "home" && (
+                        {activeSection == "rewards" && (
                             <div className="light"></div>
                         )}
                         <p
@@ -36,7 +36,7 @@ const Navigation = () => {
                         </p>
                     </div>
                     <div className="contact">
-                        {activeSection == "home" && (
+                        {activeSection == "contact" && (
                             <div className="light"></div>
                         )}
                         <p
@@ -48,7 +48,7 @@ const Navigation = () => {
                         </p>
                     </div>
                     <div className="socials">
-                        {activeSection == "home" && (
+                        {activeSection == "socials" && (
                             <div className="light"></div>
                         )}
                         <p
