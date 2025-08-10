@@ -2,9 +2,22 @@ import logo from "../../images/logo.png";
 import discord from "../../images/discord.png";
 import "./Navigation.scss";
 import { useState } from "react";
+import DiscordLoginButton from "../../discord/login";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebaseApp.ts";
+import type { User } from "firebase/auth";
 
 const Navigation = () => {
     const [activeSection, setActiveSection] = useState<string>("home");
+    const [user, setUser] = useState<User | null>(null);
+
+    useEffect(() => {
+        const unsub = onAuthStateChanged(auth, (firebaseUser) => {
+            setUser(firebaseUser);
+        });
+        return unsub;
+    }, []);
 
     return (
         <div className="navigation">
@@ -65,6 +78,12 @@ const Navigation = () => {
                     <img src={discord} alt="discord logo" />
                     <p>Sign in with Discord</p>
                 </button>
+                {user ? (
+                    <h1>Welcome {user.displayName}</h1>
+                ) : (
+                    <h1>Not logged in</h1>
+                )}
+                <DiscordLoginButton />
             </div>
         </div>
     );

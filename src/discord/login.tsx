@@ -1,0 +1,13 @@
+const DISCORD_CLIENT_ID = "1404089022480908389";
+const REDIRECT_URI = "http://localhost:8000/api/auth/discord/callback"; // <- backend
+const OAUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&redirect_uri=${encodeURIComponent(
+    REDIRECT_URI
+)}&response_type=code&scope=identify%20email`;
+
+export default function DiscordLoginButton() {
+    return (
+        <button onClick={() => (window.location.href = OAUTH_URL)}>
+            Login with Discord
+        </button>
+    );
+}
