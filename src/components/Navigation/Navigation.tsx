@@ -1,5 +1,4 @@
 import logo from "../../images/logo.png";
-import discord from "../../images/discord.png";
 import "./Navigation.scss";
 import { useState } from "react";
 import DiscordLoginButton from "../../discord/login";
@@ -22,7 +21,7 @@ const Navigation = () => {
     return (
         <div className="navigation">
             <img src={logo} alt="" className="logo" />
-            <div className="navbar">
+            <div className={`navbar ${user ? "navbarLogged" : ""}`}>
                 <div className="navigations">
                     <div className="home">
                         {activeSection == "home" && (
@@ -74,7 +73,17 @@ const Navigation = () => {
                     </div>
                 </div>
                 <div className="navLine"></div>
-                <button className="signIn">
+                {user ? (
+                    <div className="signedIn">
+                        <p className="points">Points: 0</p>
+                        <div className="navLine"></div>
+                        <p className="user">Signed in as {user.displayName}</p>
+                        <button className="signOut">Sign out</button>
+                    </div>
+                ) : (
+                    <DiscordLoginButton />
+                )}
+                {/* <button className="signIn">
                     <img src={discord} alt="discord logo" />
                     <p>Sign in with Discord</p>
                 </button>
@@ -82,8 +91,8 @@ const Navigation = () => {
                     <h1>Welcome {user.displayName}</h1>
                 ) : (
                     <h1>Not logged in</h1>
-                )}
-                <DiscordLoginButton />
+                )} */}
+                {/* <DiscordLoginButton /> */}
             </div>
         </div>
     );

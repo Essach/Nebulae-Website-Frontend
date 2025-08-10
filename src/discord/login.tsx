@@ -4,10 +4,19 @@ const OAUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=${DISCORD_
     REDIRECT_URI
 )}&response_type=code&scope=identify%20email`;
 
+import discord from "../images/discord.png";
+
 export default function DiscordLoginButton() {
     return (
-        <button onClick={() => (window.location.href = OAUTH_URL)}>
-            Login with Discord
+        // <button onClick={() => (window.location.href = OAUTH_URL)}>
+        //     Login with Discord
+        // </button>
+        <button
+            className="signIn"
+            onClick={() => (window.location.href = OAUTH_URL)}
+        >
+            <img src={discord} alt="discord logo" />
+            <p>Sign in with Discord</p>
         </button>
     );
 }

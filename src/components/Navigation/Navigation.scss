@@ -165,6 +165,17 @@
                 font-size: 0.9rem;
             }
         }
+
+        .signedIn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .navbarLogged {
+        width: 800px !important;
+        left: calc(50% - 400px);
     }
 }
 
