@@ -9,6 +9,7 @@
     height: calc(100vh - 120px);
     margin-top: -60px;
     gap: 1.5rem;
+    scroll-snap-align: start;
 
     .homeTop {
         display: flex;

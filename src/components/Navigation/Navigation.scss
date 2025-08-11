@@ -36,12 +36,15 @@
             div {
                 height: 100%;
 
-                p {
-                    font-size: 1.2rem;
-                    font-weight: 500;
+                a {
+                    text-decoration: none;
+                    p {
+                        font-size: 1.2rem;
+                        font-weight: 500;
 
-                    &:hover {
-                        cursor: pointer;
+                        &:hover {
+                            cursor: pointer;
+                        }
                     }
                 }
             }

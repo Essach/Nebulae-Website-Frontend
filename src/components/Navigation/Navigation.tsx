@@ -8,9 +8,16 @@ import { auth } from "../../firebaseApp.ts";
 import type { User } from "firebase/auth";
 import LogoutButton from "../../discord/logout.tsx";
 import { usePoints } from "../../context/PointsContext/PointsContext.ts";
+import { HashLink } from "react-router-hash-link";
+
+const sections = [
+    { id: "home" },
+    { id: "rewards" },
+    { id: "contact" },
+    { id: "socials" },
+];
 
 const Navigation = () => {
-    const [activeSection, setActiveSection] = useState<string>("home");
     const [user, setUser] = useState<User | null>(null);
 
     const pointsCon = usePoints();
@@ -22,6 +29,38 @@ const Navigation = () => {
         });
         return unsub;
     }, []);
+
+    const [activeSection, setActiveSection] = useState<string>("home");
+
+    useEffect(() => {
+        const handleScroll = () => {
+            let current = "";
+            sections.forEach((section) => {
+                const element = document.getElementById(section.id);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+
+                    if (
+                        rect.top <= window.innerHeight / 2 &&
+                        rect.bottom >= window.innerHeight / 2
+                    ) {
+                        current = section.id;
+                    }
+                }
+            });
+            if (current) setActiveSection(current);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const handleClickNav = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
 
     return (
         <div className="navigation">
@@ -36,49 +75,69 @@ const Navigation = () => {
                         {activeSection == "home" && (
                             <div className="light"></div>
                         )}
-                        <p
-                            onClick={() => {
-                                setActiveSection("home");
+                        <a
+                            href="#home"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                handleClickNav("home");
                             }}
                         >
-                            Home
-                        </p>
+                            <p
+                                onClick={() => {
+                                    setActiveSection("home");
+                                }}
+                            >
+                                Home
+                            </p>
+                        </a>
                     </div>
                     <div className="rewards">
                         {activeSection == "rewards" && (
                             <div className="light"></div>
                         )}
-                        <p
+                        <a
+                            href="#rewards"
                             onClick={() => {
-                                setActiveSection("rewards");
+                                handleClickNav("rewards");
                             }}
                         >
-                            Rewards
-                        </p>
+                            <p
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setActiveSection("rewards");
+                                }}
+                            >
+                                Rewards
+                            </p>
+                        </a>
                     </div>
                     <div className="contact">
                         {activeSection == "contact" && (
                             <div className="light"></div>
                         )}
-                        <p
-                            onClick={() => {
-                                setActiveSection("contact");
-                            }}
-                        >
-                            Contact
-                        </p>
+                        <a href="#contact">
+                            <p
+                                onClick={() => {
+                                    setActiveSection("contact");
+                                }}
+                            >
+                                Contact
+                            </p>
+                        </a>
                     </div>
                     <div className="socials">
                         {activeSection == "socials" && (
                             <div className="light"></div>
                         )}
-                        <p
-                            onClick={() => {
-                                setActiveSection("socials");
-                            }}
-                        >
-                            Socials
-                        </p>
+                        <a href="#socials">
+                            <p
+                                onClick={() => {
+                                    setActiveSection("socials");
+                                }}
+                            >
+                                Socials
+                            </p>
+                        </a>
                     </div>
                 </div>
                 <div className="navLine"></div>

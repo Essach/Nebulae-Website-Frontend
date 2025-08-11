@@ -2,7 +2,7 @@ import "./Home.scss";
 import discord from "../../images/discord.png";
 const Home = () => {
     return (
-        <div className="home">
+        <div className="home" id="home">
             <div className="homeTop">
                 <h1 className="title">
                     <span className="top">One universe.</span>

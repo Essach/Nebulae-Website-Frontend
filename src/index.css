@@ -8,6 +8,10 @@
     }
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 @font-face {
     font-family: "Now";
     src: local("Now"),
