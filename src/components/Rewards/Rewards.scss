@@ -17,14 +17,14 @@
             flex-direction: column;
             align-items: start;
             justify-content: center;
-            gap: 2rem;
+            gap: 3rem;
             padding-right: 2rem;
 
             .rewardsTitle {
                 background: $gradBluePurple2;
                 background-clip: text;
                 color: transparent;
-                font-size: 3rem;
+                font-size: 4rem;
                 text-shadow: 0px 0px 5px rgba($neonPurple, 0.25);
             }
 
@@ -36,7 +36,7 @@
             }
 
             .rewardsDesc {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
                 line-height: 1.5rem;
             }
         }
@@ -45,7 +45,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 2rem;
+            gap: 3rem;
             padding-left: 2rem;
             flex-shrink: 1;
 
@@ -57,7 +57,7 @@
                 border-radius: 35px;
                 box-shadow: 0px 0px 4px 0px $blurple;
                 gap: 1rem;
-                padding: 7px 10px;
+                padding: 10px 10px;
                 border: none;
 
                 &:hover {
@@ -74,7 +74,7 @@
                     align-items: center;
 
                     h3 {
-                        font-size: 1.3rem;
+                        font-size: 1.4rem;
                         text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
                         font-weight: 500;
                     }
@@ -88,7 +88,7 @@
                     }
 
                     p {
-                        font-size: 0.8rem;
+                        font-size: 0.9rem;
                         text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
                         font-weight: 400;
                     }
@@ -122,6 +122,35 @@
             background: linear-gradient(90deg, $blurple, $blue, $blurple);
             background-size: 200% 200%;
             animation: gradient-animation 1s linear infinite;
+        }
+    }
+
+    .rewardsPageButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.2rem;
+        border-radius: 50px;
+        padding: 12px 40px;
+        background: linear-gradient(90deg, #7200dd, #aa51c0);
+        border: none;
+
+        .img {
+            height: 100%;
+            filter: drop-shadow(0px 0px 1px white);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            text-shadow: 0px 0px 10px rgba(white, 0.25);
+            margin-top: 2px;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background: linear-gradient(90deg, #7200dd, #aa51c0, #7200dd);
+            background-size: 200% 200%;
+            animation: gradient-animation 1.5s linear infinite;
         }
     }
 }

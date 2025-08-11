@@ -2,11 +2,36 @@ import "./Rewards.scss";
 import nitro from "../../images/nitro.png";
 import woo from "../../images/woo.png";
 import discord from "../../images/discord.png";
+const DISCORD_CLIENT_ID = "1404089022480908389";
+const REDIRECT_URI = "http://localhost:8000/api/auth/discord/callback";
+const OAUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&redirect_uri=${encodeURIComponent(
+    REDIRECT_URI
+)}&response_type=code&scope=identify%20email`;
+import { auth } from "../../firebaseApp";
+import { BsGift } from "react-icons/bs";
+import { useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Rewards = () => {
+    const [isLogged, setIsLogged] = useState(false);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const unsub = onAuthStateChanged(auth, (firebaseUser) => {
+            if (firebaseUser) {
+                setIsLogged(true);
+            } else {
+                setIsLogged(false);
+            }
+        });
+        return unsub;
+    }, []);
+
     return (
         <>
-            <div className="rewards">
+            <div className="rewards" id="rewards">
                 <div className="earnRewards">
                     <div className="rewardsLeft">
                         <h1 className="rewardsTitle">Earn discord rewards</h1>
@@ -35,10 +60,23 @@ const Rewards = () => {
                         </button>
                     </div>
                 </div>
-                <button className="rewardsSignIn">
-                    <img src={discord} alt="" />
-                    <h2>Sign in to start earning rewards</h2>
-                </button>
+                {isLogged ? (
+                    <button
+                        className="rewardsPageButton"
+                        onClick={() => navigate("/rewards")}
+                    >
+                        <BsGift size={35} className="img" />
+                        <h2>Go to the rewards page</h2>
+                    </button>
+                ) : (
+                    <button
+                        className="rewardsSignIn"
+                        onClick={() => (window.location.href = OAUTH_URL)}
+                    >
+                        <img src={discord} alt="" />
+                        <h2>Sign in to start earning rewards</h2>
+                    </button>
+                )}
             </div>
         </>
     );
