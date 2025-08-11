@@ -6,10 +6,15 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebaseApp.ts";
 import type { User } from "firebase/auth";
+import LogoutButton from "../../discord/logout.tsx";
+import { usePoints } from "../../context/PointsContext/PointsContext.ts";
 
 const Navigation = () => {
     const [activeSection, setActiveSection] = useState<string>("home");
     const [user, setUser] = useState<User | null>(null);
+
+    const pointsCon = usePoints();
+    const { points, loadingPoints } = pointsCon;
 
     useEffect(() => {
         const unsub = onAuthStateChanged(auth, (firebaseUser) => {
@@ -21,7 +26,11 @@ const Navigation = () => {
     return (
         <div className="navigation">
             <img src={logo} alt="" className="logo" />
-            <div className={`navbar ${user ? "navbarLogged" : ""}`}>
+            <div
+                className={`navbar ${user ? "navbarLogged" : ""} ${
+                    loadingPoints ? "navbarLoading" : ""
+                }`}
+            >
                 <div className="navigations">
                     <div className="home">
                         {activeSection == "home" && (
@@ -73,26 +82,34 @@ const Navigation = () => {
                     </div>
                 </div>
                 <div className="navLine"></div>
-                {user ? (
+                {loadingPoints ? (
+                    <div></div>
+                ) : (
+                    <>
+                        {user ? (
+                            <div className="signedIn">
+                                <p className="points">Points: {points}</p>
+                                <div className="navLine"></div>
+                                <p className="user">
+                                    Signed in as {user.displayName}
+                                </p>
+                                <LogoutButton />
+                            </div>
+                        ) : (
+                            <DiscordLoginButton />
+                        )}
+                    </>
+                )}
+                {/* {user ? (
                     <div className="signedIn">
-                        <p className="points">Points: 0</p>
+                        <p className="points">Points: {points}</p>
                         <div className="navLine"></div>
                         <p className="user">Signed in as {user.displayName}</p>
-                        <button className="signOut">Sign out</button>
+                        <LogoutButton />
                     </div>
                 ) : (
                     <DiscordLoginButton />
-                )}
-                {/* <button className="signIn">
-                    <img src={discord} alt="discord logo" />
-                    <p>Sign in with Discord</p>
-                </button>
-                {user ? (
-                    <h1>Welcome {user.displayName}</h1>
-                ) : (
-                    <h1>Not logged in</h1>
                 )} */}
-                {/* <DiscordLoginButton /> */}
             </div>
         </div>
     );

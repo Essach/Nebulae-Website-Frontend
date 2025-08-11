@@ -8,9 +8,6 @@ import discord from "../images/discord.png";
 
 export default function DiscordLoginButton() {
     return (
-        // <button onClick={() => (window.location.href = OAUTH_URL)}>
-        //     Login with Discord
-        // </button>
         <button
             className="signIn"
             onClick={() => (window.location.href = OAUTH_URL)}
