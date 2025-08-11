@@ -1,3 +1,8 @@
+import "./Rewards.scss";
+import nitro from "../../images/nitro.png";
+import woo from "../../images/woo.png";
+import discord from "../../images/discord.png";
+
 const Rewards = () => {
     return (
         <>
@@ -13,7 +18,7 @@ const Rewards = () => {
                     </div>
                     <div className="rewardsButtons">
                         <button className="rewardButton">
-                            <img src="" alt="" />
+                            <img src={nitro} alt="" />
                             <div className="rewardButtonText">
                                 <h3>Discord nitro basic</h3>
                                 <div className="buttonLine"></div>
@@ -21,7 +26,7 @@ const Rewards = () => {
                             </div>
                         </button>
                         <button className="rewardButton">
-                            <img src="" alt="" />
+                            <img src={woo} alt="" />
                             <div className="rewardButtonText">
                                 <h3>Custom server role</h3>
                                 <div className="buttonLine"></div>
@@ -31,7 +36,7 @@ const Rewards = () => {
                     </div>
                 </div>
                 <button className="rewardsSignIn">
-                    <img src="" alt="" />
+                    <img src={discord} alt="" />
                     <h2>Sign in to start earning rewards</h2>
                 </button>
             </div>

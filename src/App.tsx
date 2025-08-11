@@ -5,6 +5,7 @@ import Navigation from "./components/Navigation/Navigation";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import MainContext from "./context/MainContext";
 import AuthCallback from "./components/User/AuthCallback";
+import Rewards from "./components/Rewards/Rewards";
 
 const App = () => {
     return (
@@ -31,6 +32,7 @@ const Main = () => {
     return (
         <>
             <Home />
+            <Rewards />
             <AuthCallback />
         </>
     );

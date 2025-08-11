@@ -36,5 +36,5 @@ export default function AuthCallback() {
         }
     }, [navigate, setPoints]);
 
-    return <p>Logging you in...</p>;
+    return <></>;
 }
