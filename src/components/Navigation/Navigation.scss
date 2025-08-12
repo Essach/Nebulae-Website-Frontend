@@ -26,6 +26,7 @@
         left: 50%;
         transform: translate(-50%, 0);
         transition: width 0.1s ease;
+        z-index: 50;
 
         .navigations {
             display: flex;
