@@ -20,11 +20,11 @@ $rainbowNeon: linear-gradient(
     $neonRed
 );
 $gradYellowBlue: linear-gradient(
-    0deg,
+    90deg,
     $neonYellow 0%,
     $neonGreen 50%,
     $neonBlue 100%
 );
 $gradBluePurple: linear-gradient(90deg, $neonBlue 0%, $neonPurple 100%);
 $gradBluePurple2: linear-gradient(90deg, #80b7ff 0%, #dd87ff 100%);
-$gradRedYellow: linear-gradient(0deg, $neonRed 0%, $neonYellow 100%);
+$gradRedYellow: linear-gradient(90deg, $neonRed 0%, $neonYellow 100%);
