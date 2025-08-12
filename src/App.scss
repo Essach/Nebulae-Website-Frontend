@@ -2,8 +2,9 @@
 
 .app {
     min-height: 100vh;
-    background-image: url("./images/nebulaeBackground-min.png");
+    background-image: url("./images/landscapespace.jpg");
     background-size: cover;
+    background-attachment: fixed;
 }
 
 footer {
@@ -131,7 +132,7 @@ footer {
     5% {
         opacity: 1;
     }
-    70% {
+    60% {
         opacity: 1;
     }
     100% {

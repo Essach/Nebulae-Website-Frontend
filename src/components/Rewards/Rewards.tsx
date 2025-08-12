@@ -63,7 +63,9 @@ const Rewards = () => {
                 {isLogged ? (
                     <button
                         className="rewardsPageButton"
-                        onClick={() => navigate("/rewards")}
+                        onClick={() => {
+                            navigate("/rewards");
+                        }}
                     >
                         <BsGift size={35} className="img" />
                         <h2>Go to the rewards page</h2>

@@ -1,9 +1,17 @@
+import { useLocation } from "react-router-dom";
 import nitro from "../../images/nitro.png";
 import nitroPremium from "../../images/nitroPremium.png";
 import woo from "../../images/woo.png";
 import "./RewardsShop.scss";
+import { useEffect } from "react";
 
 const RewardsShop = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
         <div className="rewardsShop">
             <div className="earnPoints">
