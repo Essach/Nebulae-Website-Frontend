@@ -1,0 +1,247 @@
+@import "../../variables";
+
+.rewardsShop {
+    padding: 2rem 25%;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    .earnPoints {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        .earnPointsTop {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .earnPointsTitle {
+                font-size: 4rem;
+                background: linear-gradient(
+                    90deg,
+                    $neonRed,
+                    $neonYellow,
+                    $neonYellow,
+                    $neonRed
+                );
+                background-clip: text;
+                color: transparent;
+                text-shadow: 0px 0px 5px rgba($neonYellow, 0.25);
+                background-size: 200% 200%;
+                animation: gradient-animation 1s linear infinite;
+            }
+            .titleLine {
+                width: 100%;
+                height: 1px;
+                margin: 1rem 0;
+                background: $gradRedYellow;
+                box-shadow: 0px 0px 5px 0px $neonYellow;
+            }
+        }
+
+        .earnPointsShop {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            width: 100%;
+
+            .signUpBonus,
+            .serverBoost,
+            .serverSub {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                gap: 1rem;
+
+                .infoLabel {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: $gradRedYellow;
+                    border-radius: 35px;
+                    box-shadow: 0px 0px 4px 0px $neonYellow;
+                    gap: 1rem;
+                    padding: 17px 20px;
+                    border: none;
+                    width: 50%;
+                    box-sizing: border-box;
+
+                    .labelText {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        h4 {
+                            font-size: 1.7rem;
+                            text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+                            font-weight: 500;
+                            white-space: nowrap;
+                        }
+
+                        .textLine {
+                            width: 1px;
+                            background-color: white;
+                            margin: 0 10px;
+                            height: 30px;
+                            box-shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.5);
+                        }
+
+                        p {
+                            font-size: 1.2rem;
+                            text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+                            font-weight: 400;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+
+                .check {
+                    border: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: $darkBlue;
+                    border-radius: 35px;
+                    box-shadow: 0px 0px 4px 0px $darkBlue;
+                    gap: 0.5rem;
+                    padding: 17px 20px;
+                    border: none;
+                    width: 50%;
+                    box-sizing: border-box;
+                    font-size: 1.6rem;
+                    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+                    font-weight: 500;
+                    white-space: nowrap;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    span {
+                        font-size: 0.5rem;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+
+    .pointsShop {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        .pointsShopTop {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .pointsShopTitle {
+                font-size: 4rem;
+                background: linear-gradient(
+                    90deg,
+                    $neonBlue,
+                    $neonPurple,
+                    $neonPurple,
+                    $neonBlue
+                );
+                background-clip: text;
+                color: transparent;
+                text-shadow: 0px 0px 5px rgba($neonPurple, 0.25);
+                background-size: 200% 200%;
+                animation: gradient-animation 1s linear infinite;
+            }
+            .titleLine {
+                width: 100%;
+                height: 1px;
+                margin: 1rem 0;
+                background: $gradBluePurple2;
+                box-shadow: 0px 0px 5px 0px $neonPurple;
+            }
+        }
+
+        .shopButtons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+
+            .nitroBasic,
+            .nitroPremium,
+            .customRole {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                box-sizing: border-box;
+                background: $gradBluePurple;
+                border-radius: 45px;
+                box-shadow: 0px 0px 4px 0px $blurple;
+                gap: 1rem;
+                padding: 17px 20px;
+                border: none;
+                box-sizing: border-box;
+                width: 35rem;
+
+                img {
+                    height: 45px;
+                }
+
+                .rewardButtonText {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    h3 {
+                        font-size: 1.6rem;
+                        text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+                        font-weight: 500;
+                        white-space: nowrap;
+                    }
+
+                    .buttonLine {
+                        width: 1px;
+                        background-color: white;
+                        margin: 0 15px;
+                        height: 40px;
+                        box-shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.5);
+                    }
+
+                    p {
+                        font-size: 1rem;
+                        text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+                        font-weight: 400;
+                        white-space: nowrap;
+                    }
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    background: linear-gradient(
+                        90deg,
+                        $neonBlue,
+                        $neonPurple,
+                        $neonPurple,
+                        $neonBlue
+                    );
+                    background-size: 200% 200%;
+                    animation: gradient-animation 3s linear infinite;
+                }
+            }
+        }
+    }
+}

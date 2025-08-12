@@ -8,6 +8,7 @@ import AuthCallback from "./components/User/AuthCallback";
 import Rewards from "./components/Rewards/Rewards";
 import Contact from "./components/Contact/Contact";
 import Socials from "./components/Socials/Socials";
+import RewardsShop from "./components/RewardsShop/RewardsShop";
 
 const App = () => {
     // useEffect(() => {
@@ -40,7 +41,9 @@ const App = () => {
                     <Navigation />
                     <Routes>
                         <Route path="/" Component={Main}></Route>
+                        <Route path="/rewards" Component={RewardsShop}></Route>
                     </Routes>
+                    <footer></footer>
                 </Router>
             </MainContext>
         </div>
@@ -56,7 +59,6 @@ const Main = () => {
             <Rewards />
             <Contact />
             <Socials />
-            <footer></footer>
             <AuthCallback />
         </div>
     );
