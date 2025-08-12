@@ -11,39 +11,33 @@ import Socials from "./components/Socials/Socials";
 import RewardsShop from "./components/RewardsShop/RewardsShop";
 
 const App = () => {
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         let current = "";
-    //         sections.forEach((section) => {
-    //             const element = document.getElementById(section.id);
-    //             if (element) {
-    //                 const rect = element.getBoundingClientRect();
-
-    //                 if (
-    //                     rect.top <= window.innerHeight / 2 &&
-    //                     rect.bottom >= window.innerHeight / 2
-    //                 ) {
-    //                     current = section.id;
-    //                 }
-    //             }
-    //         });
-    //         if (current) setActiveSection(current);
-    //     };
-
-    //     window.addEventListener("scroll", handleScroll);
-    //     return () => window.removeEventListener("scroll", handleScroll);
-    // }, []);
-
     return (
         <div className="app">
+            <div className="shootingStars">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <MainContext>
                 <Router>
-                    <Navigation />
-                    <Routes>
-                        <Route path="/" Component={Main}></Route>
-                        <Route path="/rewards" Component={RewardsShop}></Route>
-                    </Routes>
-                    <footer></footer>
+                    <div className="main">
+                        <Navigation />
+                        <Routes>
+                            <Route path="/" Component={Main}></Route>
+                            <Route
+                                path="/rewards"
+                                Component={RewardsShop}
+                            ></Route>
+                        </Routes>
+                        <footer></footer>
+                    </div>
                 </Router>
             </MainContext>
         </div>

@@ -11,3 +11,131 @@ footer {
     width: 100%;
     background: $darkerBlue;
 }
+
+.main {
+    position: relative;
+    z-index: 10;
+}
+
+.shootingStars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+    span {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.7);
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+            0 0 0 8px rgba(255, 255, 255, 0.1),
+            0 0 20px rgba(255, 255, 255, 0.1);
+        animation: animateStar 1s linear infinite;
+        opacity: 0;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 300px;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.5) 0%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: translateY(-50%);
+        }
+
+        &:nth-child(1) {
+            top: 0;
+            left: 1500px;
+            right: initial;
+            animation-delay: 0.2s;
+            animation-duration: 1s;
+        }
+        &:nth-child(2) {
+            top: 0;
+            left: 380px;
+            right: initial;
+            animation-delay: 0.2s;
+            animation-duration: 3s;
+        }
+        &:nth-child(3) {
+            top: 80px;
+            left: 0;
+            right: initial;
+            animation-delay: 0.4s;
+            animation-duration: 2s;
+        }
+        &:nth-child(4) {
+            top: 0px;
+            left: 670px;
+            right: initial;
+            animation-delay: 0.6s;
+            animation-duration: 1.5s;
+        }
+        &:nth-child(5) {
+            top: 0px;
+            left: 470px;
+            right: initial;
+            animation-delay: 0.8s;
+            animation-duration: 2.5s;
+        }
+        &:nth-child(6) {
+            top: 0px;
+            left: 690px;
+            right: initial;
+            animation-delay: 1s;
+            animation-duration: 3s;
+        }
+        &:nth-child(7) {
+            top: 300px;
+            left: 0px;
+            right: initial;
+            animation-delay: 1.2s;
+            animation-duration: 1.75s;
+        }
+        &:nth-child(8) {
+            top: 0px;
+            left: 840px;
+            right: initial;
+            animation-delay: 1.4s;
+            animation-duration: 1.25s;
+        }
+        &:nth-child(9) {
+            top: 0px;
+            left: 1000px;
+            right: initial;
+            animation-delay: 0.75s;
+            animation-duration: 2.25s;
+        }
+        &:nth-child(10) {
+            top: 0px;
+            left: 580px;
+            right: initial;
+            animation-delay: 2.75s;
+            animation-duration: 2.25s;
+        }
+    }
+}
+@keyframes animateStar {
+    0% {
+        transform: rotate(245deg) translateX(0);
+    }
+    5% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(245deg) translateX(-1500px);
+        opacity: 0;
+    }
+}
