@@ -13,6 +13,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 @font-face {
     font-family: "Now";
     src: local("Now"),

@@ -13,6 +13,10 @@
         padding: 15rem 15%;
     }
 
+    @media only screen and (max-width: 450px) {
+        padding: 10rem 5%;
+    }
+
     .socialsTop {
         display: flex;
         justify-content: center;
@@ -35,6 +39,11 @@
             text-shadow: 0px 0px 5px rgba($neonYellow, 0.25);
             background-size: 200% 200%;
             animation: gradient-animation 1s linear infinite;
+            text-align: center;
+
+            @media only screen and (max-width: 450px) {
+                font-size: 2.5rem;
+            }
         }
 
         .titleLine {
@@ -54,6 +63,10 @@
         width: 80%;
         gap: 2rem;
 
+        @media only screen and (max-width: 450px) {
+            width: 100%;
+        }
+
         .socialDiscord {
             width: 100%;
             padding: 8px 10px;
@@ -68,9 +81,20 @@
             box-shadow: 0px 0px 5px 0px $blurple;
             text-shadow: 0px 0px 4px white;
             font-weight: 500;
+
+            @media only screen and (max-width: 450px) {
+                font-size: 0.9rem;
+                padding: 10px 15px;
+                gap: 0.7rem;
+            }
+
             img {
                 height: 55px;
                 filter: drop-shadow(0px 0px 1px white);
+
+                @media only screen and (max-width: 450px) {
+                    height: 40px;
+                }
             }
 
             &:hover {
@@ -93,9 +117,20 @@
             text-shadow: 0px 0px 2px black;
             font-weight: 500;
             color: black;
+
+            @media only screen and (max-width: 450px) {
+                font-size: 0.9rem;
+                padding: 10px 15px;
+                gap: 0.7rem;
+            }
+
             img {
                 height: 55px;
                 filter: drop-shadow(0px 0px 1px black);
+
+                @media only screen and (max-width: 450px) {
+                    height: 40px;
+                }
             }
 
             &:hover {

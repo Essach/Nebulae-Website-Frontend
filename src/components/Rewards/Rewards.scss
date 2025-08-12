@@ -13,9 +13,21 @@
         padding: 15rem 15%;
     }
 
+    @media only screen and (max-width: 450px) {
+        padding: 10rem 5%;
+    }
+
     .earnRewards {
         display: grid;
         grid-template-columns: 1fr 1fr;
+
+        @media only screen and (max-width: 450px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+        }
 
         .rewardsLeft {
             display: flex;
@@ -23,7 +35,13 @@
             align-items: start;
             justify-content: center;
             gap: 3rem;
-            padding-right: 2rem;
+            padding-right: 2.5rem;
+
+            @media only screen and (max-width: 450px) {
+                width: 100%;
+                gap: 1rem;
+                padding-right: 0;
+            }
 
             .rewardsTitle {
                 background: linear-gradient(
@@ -39,6 +57,11 @@
                 text-shadow: 0px 0px 5px rgba($neonPurple, 0.25);
                 background-size: 200% 200%;
                 animation: gradient-animation 1s linear infinite;
+
+                @media only screen and (max-width: 450px) {
+                    font-size: 2.5rem;
+                    text-align: center;
+                }
             }
 
             .line {
@@ -46,11 +69,20 @@
                 height: 1px;
                 width: calc(100% - 2rem);
                 box-shadow: 0px 0px 5px $neonPurple;
+
+                @media only screen and (max-width: 450px) {
+                    width: 100%;
+                }
             }
 
             .rewardsDesc {
                 font-size: 1.2rem;
                 line-height: 1.5rem;
+
+                @media only screen and (max-width: 450px) {
+                    font-size: 1rem;
+                    text-align: center;
+                }
             }
         }
 
@@ -61,6 +93,11 @@
             gap: 3rem;
             padding-left: 2rem;
             flex-shrink: 1;
+
+            @media only screen and (max-width: 450px) {
+                padding-left: 0;
+                gap: 1rem;
+            }
 
             .rewardButton {
                 display: flex;
@@ -90,6 +127,10 @@
                         font-size: 1.4rem;
                         text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
                         font-weight: 500;
+
+                        @media only screen and (max-width: 450px) {
+                            font-size: 1.2rem;
+                        }
                     }
 
                     .buttonLine {
@@ -104,6 +145,10 @@
                         font-size: 0.9rem;
                         text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
                         font-weight: 400;
+
+                        @media only screen and (max-width: 450px) {
+                            font-size: 0.7rem;
+                        }
                     }
                 }
             }
@@ -120,6 +165,18 @@
         background: linear-gradient(90deg, $blurple, $blue);
         border: none;
 
+        @media only screen and (max-width: 450px) {
+            background: linear-gradient(
+                90deg,
+                $blurple,
+                $blue,
+                $blue,
+                $blurple
+            );
+            background-size: 200% 200%;
+            animation: gradient-animation 1s linear infinite;
+        }
+
         img {
             height: 45px;
             filter: drop-shadow(0px 0px 1px white);
@@ -128,6 +185,10 @@
         h2 {
             font-size: 1.3rem;
             text-shadow: 0px 0px 10px rgba(white, 0.25);
+
+            @media only screen and (max-width: 450px) {
+                font-size: 1.1rem;
+            }
         }
 
         &:hover {
@@ -154,15 +215,36 @@
         background: linear-gradient(90deg, #7200dd, #aa51c0);
         border: none;
 
+        @media only screen and (max-width: 450px) {
+            background: linear-gradient(
+                90deg,
+                #7200dd,
+                #aa51c0,
+                #aa51c0,
+                #7200dd
+            );
+            background-size: 200% 200%;
+            animation: gradient-animation 1.5s linear infinite;
+            padding: 15px 40px;
+        }
+
         .img {
             height: 100%;
             filter: drop-shadow(0px 0px 1px white);
+
+            @media only screen and (max-width: 450px) {
+                height: 30px;
+            }
         }
 
         h2 {
             font-size: 1.4rem;
             text-shadow: 0px 0px 10px rgba(white, 0.25);
             margin-top: 2px;
+
+            @media only screen and (max-width: 450px) {
+                font-size: 1.1rem;
+            }
         }
 
         &:hover {

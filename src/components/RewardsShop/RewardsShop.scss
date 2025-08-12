@@ -9,6 +9,11 @@
     align-items: center;
     gap: 2rem;
 
+    @media only screen and (max-width: 450px) {
+        padding: 2rem 5%;
+        padding-bottom: 10rem;
+    }
+
     .earnPoints {
         display: flex;
         flex-direction: column;
@@ -36,6 +41,10 @@
                 text-shadow: 0px 0px 5px rgba($neonYellow, 0.25);
                 background-size: 200% 200%;
                 animation: gradient-animation 1s linear infinite;
+
+                @media only screen and (max-width: 450px) {
+                    font-size: 2.5rem;
+                }
             }
             .titleLine {
                 width: 100%;
@@ -52,7 +61,7 @@
             justify-content: center;
             align-items: center;
             gap: 1.5rem;
-            width: 100%;
+            width: 95%;
 
             .signUpBonus,
             .serverBoost,
@@ -62,6 +71,10 @@
                 align-items: center;
                 width: 100%;
                 gap: 1rem;
+
+                @media only screen and (max-width: 450px) {
+                    flex-direction: column;
+                }
 
                 .infoLabel {
                     display: flex;
@@ -76,6 +89,10 @@
                     width: 50%;
                     box-sizing: border-box;
 
+                    @media only screen and (max-width: 450px) {
+                        width: 100%;
+                    }
+
                     .labelText {
                         display: flex;
                         justify-content: center;
@@ -86,6 +103,10 @@
                             text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
                             font-weight: 500;
                             white-space: nowrap;
+
+                            @media only screen and (max-width: 450px) {
+                                font-size: 1.4rem;
+                            }
                         }
 
                         .textLine {
@@ -101,6 +122,10 @@
                             text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
                             font-weight: 400;
                             white-space: nowrap;
+
+                            @media only screen and (max-width: 450px) {
+                                font-size: 1rem;
+                            }
                         }
                     }
                 }
@@ -123,6 +148,11 @@
                     font-weight: 500;
                     white-space: nowrap;
 
+                    @media only screen and (max-width: 450px) {
+                        width: 100%;
+                        font-size: 1.3rem;
+                    }
+
                     &:hover {
                         cursor: pointer;
                     }
@@ -130,6 +160,10 @@
                     span {
                         font-size: 0.5rem;
                         font-weight: 400;
+
+                        @media only screen and (max-width: 450px) {
+                            font-size: 0.7rem;
+                        }
                     }
                 }
             }
@@ -163,6 +197,10 @@
                 text-shadow: 0px 0px 5px rgba($neonPurple, 0.25);
                 background-size: 200% 200%;
                 animation: gradient-animation 1s linear infinite;
+
+                @media only screen and (max-width: 450px) {
+                    font-size: 2.5rem;
+                }
             }
             .titleLine {
                 width: 100%;
@@ -197,8 +235,17 @@
                 box-sizing: border-box;
                 width: 35rem;
 
+                @media only screen and (max-width: 450px) {
+                    width: 100%;
+                    gap: 0.7rem;
+                }
+
                 img {
                     height: 45px;
+
+                    @media only screen and (max-width: 450px) {
+                        height: 40px;
+                    }
                 }
 
                 .rewardButtonText {
@@ -211,6 +258,10 @@
                         text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
                         font-weight: 500;
                         white-space: nowrap;
+
+                        @media only screen and (max-width: 450px) {
+                            font-size: 1.2rem;
+                        }
                     }
 
                     .buttonLine {
@@ -219,6 +270,10 @@
                         margin: 0 15px;
                         height: 40px;
                         box-shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.5);
+
+                        @media only screen and (max-width: 450px) {
+                            margin: 0 10px;
+                        }
                     }
 
                     p {
@@ -226,6 +281,10 @@
                         text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
                         font-weight: 400;
                         white-space: nowrap;
+
+                        @media only screen and (max-width: 450px) {
+                            font-size: 0.7rem;
+                        }
                     }
                 }
 
