@@ -1,5 +1,13 @@
+@import "./variables";
+
 .app {
     min-height: 100vh;
     background-image: url("./images/nebulaeBackground-min.png");
     background-size: 100%;
+}
+
+footer {
+    height: 200px;
+    width: 100%;
+    background: $darkerBlue;
 }

@@ -6,31 +6,32 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import MainContext from "./context/MainContext";
 import AuthCallback from "./components/User/AuthCallback";
 import Rewards from "./components/Rewards/Rewards";
-import { useEffect } from "react";
+import Contact from "./components/Contact/Contact";
+import Socials from "./components/Socials/Socials";
 
 const App = () => {
-    useEffect(() => {
-        const handleScroll = () => {
-            let current = "";
-            sections.forEach((section) => {
-                const element = document.getElementById(section.id);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         let current = "";
+    //         sections.forEach((section) => {
+    //             const element = document.getElementById(section.id);
+    //             if (element) {
+    //                 const rect = element.getBoundingClientRect();
 
-                    if (
-                        rect.top <= window.innerHeight / 2 &&
-                        rect.bottom >= window.innerHeight / 2
-                    ) {
-                        current = section.id;
-                    }
-                }
-            });
-            if (current) setActiveSection(current);
-        };
+    //                 if (
+    //                     rect.top <= window.innerHeight / 2 &&
+    //                     rect.bottom >= window.innerHeight / 2
+    //                 ) {
+    //                     current = section.id;
+    //                 }
+    //             }
+    //         });
+    //         if (current) setActiveSection(current);
+    //     };
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    //     window.addEventListener("scroll", handleScroll);
+    //     return () => window.removeEventListener("scroll", handleScroll);
+    // }, []);
 
     return (
         <div className="app">
@@ -39,10 +40,6 @@ const App = () => {
                     <Navigation />
                     <Routes>
                         <Route path="/" Component={Main}></Route>
-                        {/* <Route
-                            path="/auth/callback"
-                            element={<AuthCallback />}
-                        /> */}
                     </Routes>
                 </Router>
             </MainContext>
@@ -57,6 +54,9 @@ const Main = () => {
         <div>
             <Home />
             <Rewards />
+            <Contact />
+            <Socials />
+            <footer></footer>
             <AuthCallback />
         </div>
     );
