@@ -7,6 +7,17 @@
     align-items: center;
     height: 120px;
 
+    @media only screen and (max-width: 450px) {
+        justify-content: space-between;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba($darkBlue, 0.5);
+        height: 80px;
+        z-index: 50;
+    }
+
     .logo {
         // height: 100px;
         height: auto;
@@ -15,8 +26,8 @@
         margin-top: 1rem;
 
         @media only screen and (max-width: 450px) {
-            width: 100px;
-            margin-top: 0.5rem;
+            width: 80px;
+            margin-top: 0rem;
             margin-left: 0.5rem;
         }
     }
@@ -263,6 +274,285 @@
 
     .navbarRewardsLoading {
         width: 200px !important;
+    }
+
+    .navMobile {
+        margin-right: 3%;
+
+        .navTop {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 0.4rem;
+
+            .openNavbar {
+                width: 40px;
+                height: 35px;
+                background: transparent;
+                border: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+
+                .line {
+                    width: 100%;
+                    height: 6px;
+                    background: $neonPurple;
+                    border-radius: 50px;
+                    box-shadow: 0px 0px 2px 0px $neonPurple;
+                }
+            }
+
+            .signIn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                background: $neonPurple;
+                padding: 0.2rem 0.8rem;
+                border-radius: 25px;
+                box-shadow: 0px 0px 4px 0px $neonPurple;
+                border: none;
+
+                @media only screen and (max-width: 450px) {
+                    gap: 0.5rem;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    background: linear-gradient(
+                        90deg,
+                        $neonPurple,
+                        #c928ff,
+                        $neonPurple
+                    );
+                    background-size: 200% 200%;
+                    animation: gradient-animation 2s linear infinite;
+                }
+
+                img {
+                    height: 30px;
+                    filter: drop-shadow(0px 0px 1px white);
+                }
+
+                p {
+                    font-weight: 500;
+                    font-size: 0.9rem;
+
+                    @media only screen and (max-width: 450px) {
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+
+            .signOut {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: $neonPurple;
+                padding: 0.4rem 1rem;
+                border-radius: 25px;
+                box-shadow: 0px 0px 4px 0px $neonPurple;
+                border: none;
+                margin-left: 1rem;
+                font-weight: 500;
+                font-size: 1rem;
+                white-space: nowrap;
+
+                @media only screen and (max-width: 450px) {
+                    font-size: 0.9;
+                    padding: 0.3rem 0.7rem;
+                    margin-left: 0.3rem;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    background: linear-gradient(
+                        90deg,
+                        $neonPurple,
+                        #c928ff,
+                        $neonPurple
+                    );
+                    background-size: 200% 200%;
+                    animation: gradient-animation 2s linear infinite;
+                }
+            }
+
+            .signedIn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0.3rem;
+
+                .points {
+                    color: $neonBlue;
+                    text-shadow: 0px 0px 4px $neonBlue;
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                    width: 120px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    white-space: nowrap;
+
+                    @media only screen and (max-width: 450px) {
+                        font-size: 0.7rem;
+                        width: auto;
+                        margin-top: 0.2rem;
+                    }
+                }
+
+                .user {
+                    color: $neonPurple;
+                    text-shadow: 0px 0px 4px $neonPurple;
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                    white-space: nowrap;
+
+                    @media only screen and (max-width: 450px) {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+        }
+
+        .navbarMobileOpen {
+            transform: translateY(0px) !important;
+        }
+
+        .navbarMobile {
+            display: flex;
+            position: fixed;
+            align-items: center;
+            justify-content: space-between;
+            top: 0;
+            left: 0;
+            height: 80px;
+            width: 100%;
+            background: $darkBlue;
+            flex-grow: 1;
+            max-width: 25rem;
+            z-index: 50;
+            padding: 0 1rem;
+            box-sizing: border-box;
+            transition: all 0.2s ease-in;
+            z-index: 100;
+            transform: translateY(-80px);
+
+            div {
+                height: 100%;
+                box-sizing: border-box;
+
+                a {
+                    text-decoration: none;
+                    p {
+                        font-size: 1.1rem;
+                        font-weight: 500;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .home {
+                position: relative;
+                padding: 0.7rem 0;
+                height: 100%;
+                margin: 0 5px;
+                p {
+                    color: $neonRed;
+                    text-shadow: 0px 0px 4px $neonRed;
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                }
+
+                .light {
+                    position: absolute;
+                    height: 5px;
+                    top: 0;
+                    width: 100%;
+                    background: $neonRed;
+                    border-radius: 3px;
+                    box-shadow: 0 0px 4px 0 $neonRed;
+                    margin-top: 1rem;
+                }
+            }
+
+            .rewards {
+                position: relative;
+                padding: 0.7rem 0;
+                height: 100%;
+                margin: 0 5px;
+                p {
+                    color: $neonOrange;
+                    text-shadow: 0px 0px 4px $neonOrange;
+                }
+
+                .light {
+                    position: absolute;
+                    height: 5px;
+                    top: 0;
+                    width: 100%;
+                    background: $neonOrange;
+                    border-radius: 3px;
+                    border-radius: 3px;
+                    box-shadow: 0 0px 4px 0 $neonOrange;
+                    margin-top: 1rem;
+                }
+            }
+
+            .contact {
+                position: relative;
+                padding: 0.7rem 0;
+                height: 100%;
+                margin: 0 5px;
+                p {
+                    color: $neonYellow;
+                    text-shadow: 0px 0px 4px $neonYellow;
+                }
+
+                .light {
+                    position: absolute;
+                    height: 5px;
+                    top: 0;
+                    width: 100%;
+                    background: $neonYellow;
+                    border-radius: 3px;
+                    box-shadow: 0 0px 4px 0 $neonYellow;
+                    margin-top: 1rem;
+                }
+            }
+
+            .socials {
+                position: relative;
+                padding: 0.7rem 0;
+                height: 100%;
+                margin: 0 5px;
+                p {
+                    color: $neonGreen;
+                    text-shadow: 0px 0px 4px $neonGreen;
+                }
+
+                .light {
+                    position: absolute;
+                    height: 5px;
+                    top: 0;
+                    width: 100%;
+                    background: $neonGreen;
+                    border-radius: 3px;
+                    box-shadow: 0 0px 4px 0 $neonGreen;
+                    margin-top: 1rem;
+                }
+            }
+        }
+
+        .navbarMobileRewards {
+            justify-content: space-around;
+        }
     }
 }
 

@@ -25,6 +25,8 @@ const Navigation = () => {
 
     const [navLinkClicked, setNavLinkClicked] = useState<boolean>(false);
 
+    const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
+
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -73,130 +75,270 @@ const Navigation = () => {
     return (
         <div className="navigation">
             <img src={logo} alt="" className="logo" />
-            <div
-                className={`navbar ${user ? "navbarLogged" : ""} ${
-                    loadingPoints ? "navbarLoading" : ""
-                } ${location.pathname == "/rewards" ? "navbarRewards" : ""} ${
-                    location.pathname == "/rewards" && loadingPoints
-                        ? "navbarRewardsLoading"
-                        : ""
-                }`}
-            >
-                <div className="navigations">
-                    {location.pathname != "/rewards" ? (
-                        <div className="home">
-                            {activeSection == "home" && (
+            {window.innerWidth > 450 ? (
+                <div
+                    className={`navbar ${user ? "navbarLogged" : ""} ${
+                        loadingPoints ? "navbarLoading" : ""
+                    } ${
+                        location.pathname == "/rewards" ? "navbarRewards" : ""
+                    } ${
+                        location.pathname == "/rewards" && loadingPoints
+                            ? "navbarRewardsLoading"
+                            : ""
+                    }`}
+                >
+                    <div className="navigations">
+                        {location.pathname != "/rewards" ? (
+                            <div className="home">
+                                {activeSection == "home" && (
+                                    <div className="light"></div>
+                                )}
+                                <a
+                                    href="#home"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleClickNav("home");
+                                    }}
+                                >
+                                    <p>Home</p>
+                                </a>
+                            </div>
+                        ) : (
+                            <div className="home">
+                                <a
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleClickNav("home");
+                                        navigate("/");
+                                    }}
+                                >
+                                    <p>Home</p>
+                                </a>
+                            </div>
+                        )}
+                        {location.pathname != "/rewards" ? (
+                            <div className="rewards">
+                                {activeSection == "rewards" && (
+                                    <div className="light"></div>
+                                )}
+                                <a
+                                    href="#rewards"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleClickNav("rewards");
+                                    }}
+                                >
+                                    <p>Rewards</p>
+                                </a>
+                            </div>
+                        ) : (
+                            <div className="rewards">
                                 <div className="light"></div>
-                            )}
-                            <a
-                                href="#home"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleClickNav("home");
-                                }}
-                            >
-                                <p>Home</p>
-                            </a>
-                        </div>
+                                <a
+                                    href="#rewards"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleClickNav("rewards");
+                                    }}
+                                >
+                                    <p>Rewards</p>
+                                </a>
+                            </div>
+                        )}
+                        {location.pathname != "/rewards" ? (
+                            <div className="contact">
+                                {activeSection == "contact" && (
+                                    <div className="light"></div>
+                                )}
+                                <a
+                                    href="#contact"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleClickNav("contact");
+                                    }}
+                                >
+                                    <p>Contact</p>
+                                </a>
+                            </div>
+                        ) : (
+                            <></>
+                        )}
+                        {location.pathname != "/rewards" ? (
+                            <div className="socials">
+                                {activeSection == "socials" && (
+                                    <div className="light"></div>
+                                )}
+                                <a
+                                    href="#socials"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleClickNav("socials");
+                                    }}
+                                >
+                                    <p>Socials</p>
+                                </a>
+                            </div>
+                        ) : (
+                            <></>
+                        )}
+                    </div>
+                    <div className="navLine"></div>
+                    {loadingPoints ? (
+                        <div></div>
                     ) : (
-                        <div className="home">
-                            <a
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleClickNav("home");
-                                    navigate("/");
-                                }}
-                            >
-                                <p>Home</p>
-                            </a>
-                        </div>
-                    )}
-                    {location.pathname != "/rewards" ? (
-                        <div className="rewards">
-                            {activeSection == "rewards" && (
-                                <div className="light"></div>
+                        <>
+                            {user ? (
+                                <div className="signedIn">
+                                    <p className="points">Points: {points}</p>
+                                    <div className="navLine"></div>
+                                    <p className="user">
+                                        Signed in as {user.displayName}
+                                    </p>
+                                    <LogoutButton />
+                                </div>
+                            ) : (
+                                <DiscordLoginButton />
                             )}
-                            <a
-                                href="#rewards"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleClickNav("rewards");
-                                }}
-                            >
-                                <p>Rewards</p>
-                            </a>
-                        </div>
-                    ) : (
-                        <div className="rewards">
-                            <div className="light"></div>
-                            <a
-                                href="#rewards"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleClickNav("rewards");
-                                }}
-                            >
-                                <p>Rewards</p>
-                            </a>
-                        </div>
-                    )}
-                    {location.pathname != "/rewards" ? (
-                        <div className="contact">
-                            {activeSection == "contact" && (
-                                <div className="light"></div>
-                            )}
-                            <a
-                                href="#contact"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleClickNav("contact");
-                                }}
-                            >
-                                <p>Contact</p>
-                            </a>
-                        </div>
-                    ) : (
-                        <></>
-                    )}
-                    {location.pathname != "/rewards" ? (
-                        <div className="socials">
-                            {activeSection == "socials" && (
-                                <div className="light"></div>
-                            )}
-                            <a
-                                href="#socials"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleClickNav("socials");
-                                }}
-                            >
-                                <p>Socials</p>
-                            </a>
-                        </div>
-                    ) : (
-                        <></>
+                        </>
                     )}
                 </div>
-                <div className="navLine"></div>
-                {loadingPoints ? (
-                    <div></div>
-                ) : (
-                    <>
+            ) : (
+                <div className="navMobile">
+                    <div className="navTop">
                         {user ? (
                             <div className="signedIn">
-                                <p className="points">Points: {points}</p>
-                                <div className="navLine"></div>
-                                <p className="user">
-                                    Signed in as {user.displayName}
-                                </p>
+                                <span>
+                                    <p className="user">
+                                        Signed in as {user.displayName}
+                                    </p>
+                                    <p className="points">Points: {points}</p>
+                                </span>
                                 <LogoutButton />
                             </div>
                         ) : (
                             <DiscordLoginButton />
                         )}
-                    </>
-                )}
-            </div>
+                        <button
+                            className="openNavbar"
+                            onClick={() => {
+                                setMobileNavOpen(true);
+                            }}
+                        >
+                            <div className="line"></div>
+                            <div className="line"></div>
+                            <div className="line"></div>
+                        </button>
+                    </div>
+                    <div
+                        className={`navbarMobile ${
+                            mobileNavOpen ? "navbarMobileOpen" : ""
+                        } ${
+                            location.pathname == "/rewards"
+                                ? "navbarMobileRewards"
+                                : ""
+                        }`}
+                    >
+                        {location.pathname != "/rewards" ? (
+                            <div className="home">
+                                {activeSection == "home" && (
+                                    <div className="light"></div>
+                                )}
+                                <a
+                                    href="#home"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleClickNav("home");
+                                        setMobileNavOpen(false);
+                                    }}
+                                >
+                                    <p>Home</p>
+                                </a>
+                            </div>
+                        ) : (
+                            <div className="home">
+                                <a
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleClickNav("home");
+                                        navigate("/");
+                                    }}
+                                >
+                                    <p>Home</p>
+                                </a>
+                            </div>
+                        )}
+                        {location.pathname != "/rewards" ? (
+                            <div className="rewards">
+                                {activeSection == "rewards" && (
+                                    <div className="light"></div>
+                                )}
+                                <a
+                                    href="#rewards"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleClickNav("rewards");
+                                        setMobileNavOpen(false);
+                                    }}
+                                >
+                                    <p>Rewards</p>
+                                </a>
+                            </div>
+                        ) : (
+                            <div className="rewards">
+                                <div className="light"></div>
+                                <a
+                                    href="#rewards"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleClickNav("rewards");
+                                        setMobileNavOpen(false);
+                                    }}
+                                >
+                                    <p>Rewards</p>
+                                </a>
+                            </div>
+                        )}
+                        {location.pathname != "/rewards" ? (
+                            <div className="contact">
+                                {activeSection == "contact" && (
+                                    <div className="light"></div>
+                                )}
+                                <a
+                                    href="#contact"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleClickNav("contact");
+                                        setMobileNavOpen(false);
+                                    }}
+                                >
+                                    <p>Contact</p>
+                                </a>
+                            </div>
+                        ) : (
+                            <></>
+                        )}
+                        {location.pathname != "/rewards" ? (
+                            <div className="socials">
+                                {activeSection == "socials" && (
+                                    <div className="light"></div>
+                                )}
+                                <a
+                                    href="#socials"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleClickNav("socials");
+                                        setMobileNavOpen(false);
+                                    }}
+                                >
+                                    <p>Socials</p>
+                                </a>
+                            </div>
+                        ) : (
+                            <></>
+                        )}
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

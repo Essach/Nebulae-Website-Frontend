@@ -13,6 +13,8 @@
 
     @media only screen and (max-width: 450px) {
         padding: 0 3%;
+        height: calc(100vh - 80px);
+        padding-top: 80px;
     }
 
     .homeTop {
@@ -21,6 +23,7 @@
         justify-content: center;
         flex-direction: column;
         gap: 0.5rem;
+
         .title {
             display: flex;
             justify-content: center;
