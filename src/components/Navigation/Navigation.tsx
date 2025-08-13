@@ -30,14 +30,17 @@ const Navigation = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const unsub = onAuthStateChanged(auth, (firebaseUser) => {
-            setUser(firebaseUser);
-        });
-        return unsub;
-    }, []);
-
     const [activeSection, setActiveSection] = useState<string>("home");
+
+    const handleClickNav = (id: string) => {
+        setNavLinkClicked(true);
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+        setActiveSection(id);
+        setTimeout(() => setNavLinkClicked(false), 500);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -62,15 +65,30 @@ const Navigation = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [navLinkClicked]);
 
-    const handleClickNav = (id: string) => {
-        setNavLinkClicked(true);
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+    useEffect(() => {
+        const unsub = onAuthStateChanged(auth, (firebaseUser) => {
+            setUser(firebaseUser);
+        });
+        return unsub;
+    }, []);
+
+    useEffect(() => {
+        const handleTouchScreen = (e: TouchEvent) => {
+            const touch = e.touches[0];
+            console.log(touch.clientX, touch.clientY);
+            if (touch.clientY > 80) {
+                setMobileNavOpen(false);
+            }
+        };
+
+        if (window.innerWidth <= 450) {
+            window.addEventListener("touchstart", handleTouchScreen);
         }
-        setActiveSection(id);
-        setTimeout(() => setNavLinkClicked(false), 500);
-    };
+
+        return () => {
+            window.removeEventListener("touchstart", handleTouchScreen);
+        };
+    }, []);
 
     return (
         <div className="navigation">
