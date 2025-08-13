@@ -279,6 +279,7 @@ const Navigation = () => {
                                         e.preventDefault();
                                         handleClickNav("home");
                                         navigate("/");
+                                        setMobileNavOpen(false);
                                     }}
                                 >
                                     <p>Home</p>
