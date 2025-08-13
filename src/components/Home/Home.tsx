@@ -1,6 +1,14 @@
 import "./Home.scss";
 import discord from "../../images/discord.png";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 const Home = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
         <div className="home" id="home">
             <div className="homeTop">
