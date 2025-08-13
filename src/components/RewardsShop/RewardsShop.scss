@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    box-sizing: border-box;
 
     @media only screen and (max-width: 450px) {
         padding: 10rem 5%;
@@ -19,6 +20,7 @@
         justify-content: center;
         align-items: center;
         gap: 1rem;
+        box-sizing: border-box;
 
         .earnPointsTop {
             display: flex;
@@ -60,7 +62,11 @@
             justify-content: center;
             align-items: center;
             gap: 1.5rem;
-            width: 90%;
+            width: 100%;
+
+            @media only screen and (max-width: 450px) {
+                width: 90%;
+            }
 
             .signUpBonus,
             .serverBoost,
@@ -70,10 +76,11 @@
                 align-items: center;
                 gap: 1rem;
                 box-sizing: border-box;
-                width: 95vw;
+                width: 100%;
 
                 @media only screen and (max-width: 450px) {
                     flex-direction: column;
+                    width: 95vw;
                 }
 
                 .infoLabel {
