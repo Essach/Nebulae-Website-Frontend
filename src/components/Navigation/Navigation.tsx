@@ -212,7 +212,11 @@ const Navigation = () => {
                                     <p className="user">
                                         Signed in as {user.displayName}
                                     </p>
-                                    <LogoutButton />
+                                    {location.pathname != "/rewards" ? (
+                                        <LogoutButton />
+                                    ) : (
+                                        <></>
+                                    )}
                                 </div>
                             ) : (
                                 <DiscordLoginButton />
@@ -231,7 +235,11 @@ const Navigation = () => {
                                     </p>
                                     <p className="points">Points: {points}</p>
                                 </span>
-                                <LogoutButton />
+                                {location.pathname != "/rewards" ? (
+                                    <LogoutButton />
+                                ) : (
+                                    <></>
+                                )}
                             </div>
                         ) : (
                             <DiscordLoginButton />
