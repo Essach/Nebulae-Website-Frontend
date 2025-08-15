@@ -10,26 +10,70 @@ import { auth } from "../../firebaseApp.ts";
 import { FaRegCheckSquare } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
 import { MdErrorOutline } from "react-icons/md";
+import getUserPoints from "../User/getPoints.ts";
+import { usePoints } from "../../context/PointsContext/PointsContext.ts";
+import { CircleLoader } from "react-spinners";
 
 const RewardsShop = () => {
-    // const [a, setA] = useState<boolean>(false);
     const [currentAlert, setCurrentAlert] = useState<string>("");
     const [alertMessage, setAlertMessage] = useState<string>("");
     const [alertOpen, setAlertOpen] = useState<boolean>(false);
+
+    const [isRedeeming, setIsRedeeming] = useState<boolean>(false);
 
     const { pathname } = useLocation();
 
     const userData = useUser();
     const uid = userData.uid;
 
+    const context = usePoints();
+    const { setPoints } = context;
+
+    const cleanAlert = () => {
+        setCurrentAlert("");
+        setAlertMessage("");
+    };
+
     const handleRedeemBonus = async (bonusType: string) => {
+        cleanAlert();
+        setAlertOpen(false);
+        setIsRedeeming(true);
         const { data, status } = await request.get("/bonuses/redeem", {
             params: {
                 userId: uid,
                 bonusType: bonusType,
             },
         });
-        console.log(data, status);
+        if (status == 200) {
+            if (data.available) {
+                const points = await getUserPoints();
+                setPoints(points);
+                setCurrentAlert("success");
+                setAlertMessage("Successfully redeemed points.");
+                setAlertOpen(true);
+                setTimeout(() => {
+                    setAlertOpen(false);
+                    cleanAlert();
+                }, 2000);
+            } else {
+                setCurrentAlert("wrong");
+                setAlertMessage("You are not eligible to redeem these points.");
+                setAlertOpen(true);
+                setTimeout(() => {
+                    setAlertOpen(false);
+                    cleanAlert();
+                }, 2000);
+            }
+        } else {
+            setCurrentAlert("error");
+            setAlertMessage("Something went wrong. Try again later.");
+            setAlertOpen(true);
+            setTimeout(() => {
+                setAlertOpen(false);
+                cleanAlert();
+            }, 2000);
+        }
+        setIsRedeeming(false);
     };
 
     useEffect(() => {
@@ -62,12 +106,9 @@ const RewardsShop = () => {
                                     </div>
                                     <button
                                         className="redeem"
-                                        onClick={() =>
-                                            setAlertOpen((prev) => !prev)
+                                        onClick={async () =>
+                                            await handleRedeemBonus("signUp")
                                         }
-                                        // onClick={async () =>
-                                        //     await handleRedeemBonus("signUp")
-                                        // }
                                     >
                                         Redeem points
                                     </button>
@@ -166,7 +207,7 @@ const RewardsShop = () => {
                             <FaRegCheckSquare
                                 size={30}
                                 fill="green"
-                                filter="drop-shadow(0px 0px 2px green)"
+                                filter="drop-shadow(0px 0px 1px green)"
                             />
                         ) : (
                             ""
@@ -175,7 +216,7 @@ const RewardsShop = () => {
                             <MdOutlineCancel
                                 size={30}
                                 fill="red"
-                                filter="drop-shadow(0px 0px 2px red)"
+                                filter="drop-shadow(0px 0px 1px red)"
                             />
                         ) : (
                             ""
@@ -184,24 +225,25 @@ const RewardsShop = () => {
                             <MdErrorOutline
                                 size={30}
                                 fill="orange"
-                                filter="drop-shadow(0px 0px 2px orange)"
+                                filter="drop-shadow(0px 0px 1px orange)"
                             />
                         ) : (
                             ""
                         )}
-                        <MdErrorOutline
-                            size={30}
-                            fill="orange"
-                            filter="drop-shadow(0px 0px 2px orange)"
-                        />
-                        <p>You are not eligible to redeem these points.</p>
-                        {/* <p>{alertMessage}</p> */}
+                        <p>{alertMessage}</p>
                     </div>
                 </>
             ) : (
                 <div className="noUserRewards">
                     Log in to see the rewards shop!
                 </div>
+            )}
+            {isRedeeming ? (
+                <div className="redeemingScreen">
+                    <CircleLoader size={200} color="#FFFFFF" />
+                </div>
+            ) : (
+                <div></div>
             )}
         </div>
     );

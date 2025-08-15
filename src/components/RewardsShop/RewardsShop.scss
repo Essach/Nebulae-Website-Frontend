@@ -371,6 +371,19 @@
     animation: slideDown 0.5s forwards;
 }
 
+.redeemingScreen {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    z-index: 40;
+}
+
 @keyframes slideDown {
     from {
         transform: translateX(-50%) translateY(-100%);
