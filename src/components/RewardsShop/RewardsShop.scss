@@ -21,6 +21,7 @@
         align-items: center;
         gap: 1rem;
         box-sizing: border-box;
+        width: 100%;
 
         .earnPointsTop {
             display: flex;
@@ -71,9 +72,8 @@
             .signUpBonus,
             .serverBoost,
             .serverSub {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
                 gap: 1rem;
                 box-sizing: border-box;
                 width: 100%;
@@ -87,14 +87,16 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background: $gradRedYellow;
+                    background: linear-gradient(90deg, $neonRed, $neonOrange);
                     border-radius: 35px;
-                    box-shadow: 0px 0px 4px 0px $neonYellow;
+                    box-shadow: 0px 0px 2px 0px $neonYellow;
                     gap: 1rem;
                     padding: 17px 20px;
                     border: none;
-                    width: 50%;
+                    width: 100%;
                     box-sizing: border-box;
+                    min-width: 0;
+                    min-height: 0;
 
                     @media only screen and (max-width: 450px) {
                         width: 100%;
@@ -106,13 +108,18 @@
                         align-items: center;
 
                         h4 {
-                            font-size: 1.7rem;
+                            font-size: 1.5rem;
                             text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
                             font-weight: 500;
                             white-space: nowrap;
 
                             @media only screen and (max-width: 450px) {
                                 font-size: 1.4rem;
+                            }
+
+                            span {
+                                font-size: 0.8rem;
+                                font-weight: 400;
                             }
                         }
 
@@ -137,23 +144,30 @@
                     }
                 }
 
-                .check {
+                .redeem {
                     border: none;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background: $darkBlue;
+                    background: linear-gradient(
+                        90deg,
+                        $neonOrange,
+                        $neonYellow
+                    );
                     border-radius: 35px;
-                    box-shadow: 0px 0px 4px 0px $darkBlue;
                     gap: 0.5rem;
                     padding: 17px 20px;
                     border: none;
                     box-sizing: border-box;
                     font-size: 1.6rem;
-                    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+                    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
                     font-weight: 500;
                     white-space: nowrap;
-                    width: 50%;
+                    width: 100%;
+                    box-sizing: border-box;
+                    min-width: 0;
+                    min-height: 0;
+                    box-shadow: 0px 0px 2px 0px $neonYellow;
 
                     @media only screen and (max-width: 450px) {
                         width: 100%;
@@ -321,4 +335,61 @@
     justify-content: center;
     font-size: 4rem;
     font-weight: 500;
+}
+
+.rewardsAlert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 100;
+    background: white;
+    padding: 15px 35px;
+    border-radius: 15px;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+
+    p {
+        color: black;
+        font-size: 1.1rem;
+        text-shadow: 0px 0px 1px black;
+        font-weight: 400;
+        padding-right: 15px;
+        padding-top: 3px;
+    }
+}
+
+.alertHidden {
+    animation: fadeOut 0.5s forwards;
+}
+
+.alertVisible {
+    animation: slideDown 0.5s forwards;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateX(-50%) translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-50%) translateY(0);
+        display: none;
+    }
 }
