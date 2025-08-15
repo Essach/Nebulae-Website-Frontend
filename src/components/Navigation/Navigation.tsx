@@ -112,8 +112,8 @@ const Navigation = () => {
                         location.pathname == "/rewards"
                             ? usernameLength > 14
                                 ? "navbarRewardsLong"
-                                : ""
-                            : "navbarRewards"
+                                : "navbarRewards"
+                            : ""
                     }
                     } ${
                         location.pathname == "/rewards" && loadingPoints
