@@ -22,6 +22,7 @@ export default function AuthCallback() {
             signInWithCustomToken(auth, token)
                 .then(async (userCredential) => {
                     console.log("Logged in as:", userCredential.user);
+                    console.log(userCredential);
                     if (userCredential.user.displayName) {
                         changeUsername(userCredential.user.displayName);
                         setUsername(userCredential.user.displayName);

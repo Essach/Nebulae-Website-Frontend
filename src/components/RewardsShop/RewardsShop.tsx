@@ -4,9 +4,25 @@ import nitroPremium from "../../images/nitroPremium.png";
 import woo from "../../images/woo.png";
 import "./RewardsShop.scss";
 import { useEffect } from "react";
+import { useUser } from "../../context/UserContext/UserContext";
+import request from "../../helpers/request.ts";
 
 const RewardsShop = () => {
     const { pathname } = useLocation();
+
+    const userData = useUser();
+    const uid = userData.uid;
+
+    const handleCheckBonus = async (bonusType: string) => {
+        const { data, status } = await request.get("/bonuses/check", {
+            params: {
+                userId: uid,
+                bonusType: bonusType,
+            },
+        });
+        console.log("hi");
+        console.log(data, status);
+    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -28,7 +44,12 @@ const RewardsShop = () => {
                                 <p className="pointsAmount">300 points</p>
                             </div>
                         </div>
-                        <button className="check">
+                        <button
+                            className="check"
+                            onClick={async () =>
+                                await handleCheckBonus("signUp")
+                            }
+                        >
                             Check for availability
                         </button>
                     </div>
