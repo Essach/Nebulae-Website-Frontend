@@ -19,6 +19,7 @@ const sections = [
 
 const Navigation = () => {
     const [user, setUser] = useState<User | null>(null);
+    const [usernameLength, setUsernameLength] = useState<number>(0);
 
     const pointsCon = usePoints();
     const { points, loadingPoints } = pointsCon;
@@ -90,14 +91,24 @@ const Navigation = () => {
         };
     }, []);
 
+    useEffect(() => {
+        if (user?.displayName) {
+            setUsernameLength(user.displayName.length);
+        }
+    }, [user]);
+
     return (
         <div className="navigation">
             <img src={logo} alt="" className="logo" />
             {window.innerWidth > 450 ? (
                 <div
-                    className={`navbar ${user ? "navbarLogged" : ""} ${
-                        loadingPoints ? "navbarLoading" : ""
-                    } ${
+                    className={`navbar ${
+                        user
+                            ? usernameLength > 14
+                                ? "navbarLoggedLong"
+                                : "navbarLogged"
+                            : ""
+                    } ${loadingPoints ? "navbarLoading" : ""} ${
                         location.pathname == "/rewards" ? "navbarRewards" : ""
                     } ${
                         location.pathname == "/rewards" && loadingPoints
