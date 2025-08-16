@@ -71,7 +71,8 @@
 
             .signUpBonus,
             .serverBoost,
-            .serverSub {
+            .serverSub,
+            .levelBonus {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: 1rem;

@@ -161,6 +161,30 @@ const RewardsShop = () => {
                                         Redeem points
                                     </button>
                                 </div>
+                                <div className="levelBonus">
+                                    <div className="infoLabel">
+                                        <div className="labelText">
+                                            <h4 className="desc">
+                                                Level bonus{" "}
+                                                <span>{`(Every 5 levels)`}</span>
+                                            </h4>
+                                            <div className="textLine"></div>
+                                            <p className="pointsAmount">
+                                                25 points
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        className="redeem"
+                                        onClick={async () =>
+                                            await handleRedeemBonus(
+                                                "levelBonus"
+                                            )
+                                        }
+                                    >
+                                        Redeem points
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div className="pointsShop">
