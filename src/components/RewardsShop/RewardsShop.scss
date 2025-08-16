@@ -363,6 +363,63 @@
         padding-top: 3px;
     }
 }
+.backdrop {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+
+    .confirmationWindow {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 25px 35px;
+        border-radius: 20px;
+        gap: 1.5rem;
+        p {
+            color: black;
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+        .buttons {
+            display: flex;
+            gap: 1.3rem;
+
+            button {
+                padding: 8px 25px;
+                border: none;
+                border-radius: 10px;
+                font-size: 1rem;
+                font-weight: 500;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .cancel {
+                background: $neonRed;
+                box-shadow: 0px 0px 4px 0px $neonRed;
+            }
+
+            .redeem {
+                background: $gradBluePurple2;
+                box-shadow: 0px 0px 4px 0px $blurple;
+            }
+        }
+    }
+}
 
 .alertHidden {
     animation: fadeOut 0.5s forwards;

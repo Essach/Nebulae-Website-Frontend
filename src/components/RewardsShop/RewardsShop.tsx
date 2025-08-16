@@ -21,6 +21,11 @@ const RewardsShop = () => {
 
     const [isRedeeming, setIsRedeeming] = useState<boolean>(false);
 
+    const [confirmationOpen, setConfirmationOpen] = useState<boolean>(false);
+    const [currentReward, setCurrentReward] = useState<string>("");
+    const [currentRewardCost, setCurrentRewardCost] = useState<string>("");
+    const [currentRewardNormal, setCurrentRewardNormal] = useState<string>("");
+
     const { pathname } = useLocation();
 
     const userData = useUser();
@@ -34,11 +39,17 @@ const RewardsShop = () => {
         setAlertMessage("");
     };
 
+    const cleanConfirmation = () => {
+        setCurrentReward("");
+        setCurrentRewardCost("");
+        setCurrentRewardNormal("");
+    };
+
     const handleRedeemBonus = async (bonusType: string) => {
         cleanAlert();
         setAlertOpen(false);
         setIsRedeeming(true);
-        const { data, status } = await request.get("/bonuses/redeem", {
+        const { data, status } = await request.get("/rewards/bonus", {
             params: {
                 userId: uid,
                 bonusType: bonusType,
@@ -72,6 +83,51 @@ const RewardsShop = () => {
                 setAlertOpen(false);
                 cleanAlert();
             }, 2000);
+        }
+        setIsRedeeming(false);
+    };
+
+    const handleRedeemReward = async (rewardType: string) => {
+        setConfirmationOpen(false);
+        cleanConfirmation();
+        cleanAlert();
+        setAlertOpen(false);
+        setIsRedeeming(true);
+        const { data, status } = await request.get("/rewards/buy", {
+            params: {
+                userId: uid,
+                rewardType: rewardType,
+            },
+        });
+        if (status == 200) {
+            const points = await getUserPoints();
+            setPoints(points);
+            setCurrentAlert("success");
+            setAlertMessage("Successfully redeemed reward.");
+            setAlertOpen(true);
+            setTimeout(() => {
+                setAlertOpen(false);
+                cleanAlert();
+            }, 2000);
+        } else if (status == 406) {
+            setCurrentAlert("wrong");
+            setAlertMessage(
+                "You have insufficient points to redeem this reward."
+            );
+            setAlertOpen(true);
+            setTimeout(() => {
+                setAlertOpen(false);
+                cleanAlert();
+            }, 2000);
+        } else {
+            setCurrentAlert("error");
+            setAlertMessage("Something went wrong. Try again later.");
+            setAlertOpen(true);
+            setTimeout(() => {
+                setAlertOpen(false);
+                cleanAlert();
+            }, 2000);
+            console.log(data.message);
         }
         setIsRedeeming(false);
     };
@@ -189,13 +245,19 @@ const RewardsShop = () => {
                         </div>
                         <div className="pointsShop">
                             <div className="pointsShopTop">
-                                <h1 className="pointsShopTitle">
-                                    Points shop{" "}
-                                </h1>
+                                <h1 className="pointsShopTitle">Points shop</h1>
                                 <div className="titleLine"></div>
                             </div>
                             <div className="shopButtons">
-                                <button className="nitroBasic">
+                                <button
+                                    className="nitroBasic"
+                                    onClick={() => {
+                                        setConfirmationOpen(true);
+                                        setCurrentReward("nitroBasic");
+                                        setCurrentRewardCost("2000");
+                                        setCurrentRewardNormal("Nitro Basic");
+                                    }}
+                                >
                                     <img src={nitro} alt="" />
                                     <div className="rewardButtonText">
                                         <h3>Discord nitro basic</h3>
@@ -203,7 +265,15 @@ const RewardsShop = () => {
                                         <p>2,000 Points</p>
                                     </div>
                                 </button>
-                                <button className="nitroPremium">
+                                <button
+                                    className="nitroPremium"
+                                    onClick={() => {
+                                        setConfirmationOpen(true);
+                                        setCurrentReward("nitroPremium");
+                                        setCurrentRewardCost("3000");
+                                        setCurrentRewardNormal("Nitro Premium");
+                                    }}
+                                >
                                     <img src={nitroPremium} alt="" />
                                     <div className="rewardButtonText">
                                         <h3>Discord nitro premium</h3>
@@ -211,7 +281,17 @@ const RewardsShop = () => {
                                         <p>3,000 Points</p>
                                     </div>
                                 </button>
-                                <button className="customRole">
+                                <button
+                                    className="customRole"
+                                    onClick={() => {
+                                        setConfirmationOpen(true);
+                                        setCurrentReward("serverRole");
+                                        setCurrentRewardCost("1000");
+                                        setCurrentRewardNormal(
+                                            "Custom Server Role"
+                                        );
+                                    }}
+                                >
                                     <img src={woo} alt="" />
                                     <div className="rewardButtonText">
                                         <h3>Custom server role</h3>
@@ -256,6 +336,39 @@ const RewardsShop = () => {
                         )}
                         <p>{alertMessage}</p>
                     </div>
+                    {confirmationOpen ? (
+                        <div className="backdrop">
+                            <div className="confirmationWindow">
+                                <p>
+                                    {`
+                                    Are you sure you want to redeem ${currentRewardNormal} reward for ${currentRewardCost} points?`}
+                                </p>
+                                <div className="buttons">
+                                    <button
+                                        className="cancel"
+                                        onClick={() => {
+                                            setConfirmationOpen(false);
+                                            cleanConfirmation();
+                                        }}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className="redeem"
+                                        onClick={async () => {
+                                            await handleRedeemReward(
+                                                currentReward
+                                            );
+                                        }}
+                                    >
+                                        Redeem
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        <></>
+                    )}
                 </>
             ) : (
                 <div className="noUserRewards">
