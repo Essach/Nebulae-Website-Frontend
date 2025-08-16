@@ -330,12 +330,18 @@
 }
 
 .noUserRewards {
-    height: calc(100vh);
+    height: calc(100vh - 120px);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 4rem;
     font-weight: 500;
+    background: $rainbowNeon;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-animation 1.5s linear infinite;
+    text-shadow: 0px 0px 10px rgba($neonYellow, 0.25);
 }
 
 .rewardsAlert {
@@ -363,6 +369,7 @@
         padding-top: 3px;
     }
 }
+
 .backdrop {
     display: flex;
     align-items: center;
