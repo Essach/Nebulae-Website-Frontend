@@ -14,7 +14,7 @@
         padding: 10rem 5%;
     }
 
-    @media only screen and (max-width: 1920px) {
+    @media only screen and (max-width: 1600px) {
         padding: 10rem 15%;
     }
 
@@ -35,11 +35,13 @@
 
             .earnPointsTitle {
                 font-size: 4rem;
-                background: linear-gradient(90deg,
-                        $neonRed,
-                        $neonYellow,
-                        $neonYellow,
-                        $neonRed );
+                background: linear-gradient(
+                    90deg,
+                    $neonRed,
+                    $neonYellow,
+                    $neonYellow,
+                    $neonRed
+                );
                 background-clip: text;
                 color: transparent;
                 text-shadow: 0px 0px 5px rgba($neonYellow, 0.25);
@@ -153,9 +155,11 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background: linear-gradient(90deg,
-                            $neonOrange,
-                            $neonYellow );
+                    background: linear-gradient(
+                        90deg,
+                        $neonOrange,
+                        $neonYellow
+                    );
                     border-radius: 35px;
                     gap: 0.5rem;
                     padding: 17px 20px;
@@ -210,11 +214,13 @@
 
             .pointsShopTitle {
                 font-size: 4rem;
-                background: linear-gradient(90deg,
-                        $neonBlue,
-                        $neonPurple,
-                        $neonPurple,
-                        $neonBlue );
+                background: linear-gradient(
+                    90deg,
+                    $neonBlue,
+                    $neonPurple,
+                    $neonPurple,
+                    $neonBlue
+                );
                 background-clip: text;
                 color: transparent;
                 text-shadow: 0px 0px 5px rgba($neonPurple, 0.25);
@@ -314,11 +320,13 @@
 
                 &:hover {
                     cursor: pointer;
-                    background: linear-gradient(90deg,
-                            $neonBlue,
-                            $neonPurple,
-                            $neonPurple,
-                            $neonBlue );
+                    background: linear-gradient(
+                        90deg,
+                        $neonBlue,
+                        $neonPurple,
+                        $neonPurple,
+                        $neonBlue
+                    );
                     background-size: 200% 200%;
                     animation: gradient-animation 3s linear infinite;
                 }
