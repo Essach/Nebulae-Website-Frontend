@@ -10,14 +10,18 @@ const Socials = () => {
                 <div className="titleLine"></div>
             </div>
             <div className="socialsButtons">
-                <button className="socialDiscord">
-                    <img src={discord} alt="" />
-                    Nebulae - Pride Community Discord Server
-                </button>
-                <button className="socialTwitter">
-                    <img src={twitter} alt="" />
-                    Nebulae Discord Server's official X profile
-                </button>
+                <a target="_blank" href="https://discord.com/invite/6SgE58yd6z">
+                    <button className="socialDiscord">
+                        <img src={discord} alt="" />
+                        Nebulae - Pride Community Discord Server
+                    </button>
+                </a>
+                <a target="_blank" href="https://x.com">
+                    <button className="socialTwitter">
+                        <img src={twitter} alt="" />
+                        Nebulae Discord Server's official X profile
+                    </button>
+                </a>
             </div>
         </div>
     );
