@@ -91,7 +91,7 @@ const RewardsShop = () => {
         cleanConfirmation();
         setAlertOpen(false);
         setIsRedeeming(true);
-        const { data, status } = await request.post("/rewards/bonus", {
+        const { data, status } = await request.post("/rewards/buy", {
             userId: uid,
             rewardType: rewardType,
         });
