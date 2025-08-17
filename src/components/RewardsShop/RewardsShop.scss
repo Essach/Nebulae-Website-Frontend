@@ -14,6 +14,10 @@
         padding: 10rem 5%;
     }
 
+    @media only screen and (max-width: 1920px) {
+        padding: 10rem 15%;
+    }
+
     .earnPoints {
         display: flex;
         flex-direction: column;
@@ -31,13 +35,11 @@
 
             .earnPointsTitle {
                 font-size: 4rem;
-                background: linear-gradient(
-                    90deg,
-                    $neonRed,
-                    $neonYellow,
-                    $neonYellow,
-                    $neonRed
-                );
+                background: linear-gradient(90deg,
+                        $neonRed,
+                        $neonYellow,
+                        $neonYellow,
+                        $neonRed );
                 background-clip: text;
                 color: transparent;
                 text-shadow: 0px 0px 5px rgba($neonYellow, 0.25);
@@ -48,6 +50,7 @@
                     font-size: 2.5rem;
                 }
             }
+
             .titleLine {
                 width: 100%;
                 height: 1px;
@@ -150,11 +153,9 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background: linear-gradient(
-                        90deg,
-                        $neonOrange,
-                        $neonYellow
-                    );
+                    background: linear-gradient(90deg,
+                            $neonOrange,
+                            $neonYellow );
                     border-radius: 35px;
                     gap: 0.5rem;
                     padding: 17px 20px;
@@ -209,13 +210,11 @@
 
             .pointsShopTitle {
                 font-size: 4rem;
-                background: linear-gradient(
-                    90deg,
-                    $neonBlue,
-                    $neonPurple,
-                    $neonPurple,
-                    $neonBlue
-                );
+                background: linear-gradient(90deg,
+                        $neonBlue,
+                        $neonPurple,
+                        $neonPurple,
+                        $neonBlue );
                 background-clip: text;
                 color: transparent;
                 text-shadow: 0px 0px 5px rgba($neonPurple, 0.25);
@@ -226,6 +225,7 @@
                     font-size: 2.5rem;
                 }
             }
+
             .titleLine {
                 width: 100%;
                 height: 1px;
@@ -314,13 +314,11 @@
 
                 &:hover {
                     cursor: pointer;
-                    background: linear-gradient(
-                        90deg,
-                        $neonBlue,
-                        $neonPurple,
-                        $neonPurple,
-                        $neonBlue
-                    );
+                    background: linear-gradient(90deg,
+                            $neonBlue,
+                            $neonPurple,
+                            $neonPurple,
+                            $neonBlue );
                     background-size: 200% 200%;
                     animation: gradient-animation 3s linear infinite;
                 }
@@ -368,11 +366,13 @@
         padding: 25px 35px;
         border-radius: 20px;
         gap: 1.5rem;
+
         p {
             color: black;
             font-weight: 500;
             font-size: 1.2rem;
         }
+
         .buttons {
             display: flex;
             gap: 1.3rem;
@@ -454,6 +454,7 @@
         transform: translateX(-50%) translateY(-100%);
         opacity: 0;
     }
+
     to {
         transform: translateX(-50%) translateY(0);
         opacity: 1;
@@ -465,10 +466,12 @@
         opacity: 1;
         transform: translateX(-50%) translateY(0);
     }
+
     99% {
         opacity: 0;
         transform: translateX(-50%) translateY(0);
     }
+
     100% {
         opacity: 0;
         transform: translateX(-50%) translateY(0);

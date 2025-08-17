@@ -9,7 +9,7 @@
     gap: 3rem;
     scroll-snap-align: start;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1920px) {
         padding: 15rem 15%;
     }
 
@@ -44,13 +44,11 @@
             }
 
             .rewardsTitle {
-                background: linear-gradient(
-                    90deg,
-                    #80b7ff,
-                    #dd87ff,
-                    #dd87ff,
-                    #80b7ff
-                );
+                background: linear-gradient(90deg,
+                        #80b7ff,
+                        #dd87ff,
+                        #dd87ff,
+                        #80b7ff);
                 background-clip: text;
                 color: transparent;
                 font-size: 4rem;
@@ -166,13 +164,11 @@
         border: none;
 
         @media only screen and (max-width: 450px) {
-            background: linear-gradient(
-                90deg,
-                $blurple,
-                $blue,
-                $blue,
-                $blurple
-            );
+            background: linear-gradient(90deg,
+                    $blurple,
+                    $blue,
+                    $blue,
+                    $blurple );
             background-size: 200% 200%;
             animation: gradient-animation 1s linear infinite;
         }
@@ -193,13 +189,11 @@
 
         &:hover {
             cursor: pointer;
-            background: linear-gradient(
-                90deg,
-                $blurple,
-                $blue,
-                $blue,
-                $blurple
-            );
+            background: linear-gradient(90deg,
+                    $blurple,
+                    $blue,
+                    $blue,
+                    $blurple );
             background-size: 200% 200%;
             animation: gradient-animation 1s linear infinite;
         }
@@ -216,13 +210,11 @@
         border: none;
 
         @media only screen and (max-width: 450px) {
-            background: linear-gradient(
-                90deg,
-                #7200dd,
-                #aa51c0,
-                #aa51c0,
-                #7200dd
-            );
+            background: linear-gradient(90deg,
+                    #7200dd,
+                    #aa51c0,
+                    #aa51c0,
+                    #7200dd);
             background-size: 200% 200%;
             animation: gradient-animation 1.5s linear infinite;
             padding: 15px 40px;
@@ -249,13 +241,11 @@
 
         &:hover {
             cursor: pointer;
-            background: linear-gradient(
-                90deg,
-                #7200dd,
-                #aa51c0,
-                #aa51c0,
-                #7200dd
-            );
+            background: linear-gradient(90deg,
+                    #7200dd,
+                    #aa51c0,
+                    #aa51c0,
+                    #7200dd);
             background-size: 200% 200%;
             animation: gradient-animation 1.5s linear infinite;
         }
@@ -266,6 +256,7 @@
     0% {
         background-position: 200% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
