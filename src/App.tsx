@@ -9,6 +9,7 @@ import Rewards from "./components/Rewards/Rewards";
 import Contact from "./components/Contact/Contact";
 import Socials from "./components/Socials/Socials";
 import RewardsShop from "./components/RewardsShop/RewardsShop";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
     return (
@@ -36,7 +37,7 @@ const App = () => {
                                 Component={RewardsShop}
                             ></Route>
                         </Routes>
-                        <footer></footer>
+                        <Footer />
                     </div>
                 </Router>
             </MainContext>
