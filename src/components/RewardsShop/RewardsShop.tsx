@@ -18,6 +18,7 @@ const RewardsShop = () => {
     const [currentAlert, setCurrentAlert] = useState<string>("");
     const [alertMessage, setAlertMessage] = useState<string>("");
     const [alertOpen, setAlertOpen] = useState<boolean>(false);
+    const [timeoutId, setTimeoutId] = useState<null | NodeJS.Timeout>(null);
 
     const [isRedeeming, setIsRedeeming] = useState<boolean>(false);
 
@@ -34,11 +35,6 @@ const RewardsShop = () => {
     const context = usePoints();
     const { setPoints } = context;
 
-    const cleanAlert = () => {
-        setCurrentAlert("");
-        setAlertMessage("");
-    };
-
     const cleanConfirmation = () => {
         setCurrentReward("");
         setCurrentRewardCost("");
@@ -46,14 +42,11 @@ const RewardsShop = () => {
     };
 
     const handleRedeemBonus = async (bonusType: string) => {
-        cleanAlert();
         setAlertOpen(false);
         setIsRedeeming(true);
-        const { data, status } = await request.get("/rewards/bonus", {
-            params: {
-                userId: uid,
-                bonusType: bonusType,
-            },
+        const { data, status } = await request.post("/rewards/bonus", {
+            userId: uid,
+            bonusType: bonusType,
         });
         if (status == 200) {
             if (data.available) {
@@ -62,27 +55,33 @@ const RewardsShop = () => {
                 setCurrentAlert("success");
                 setAlertMessage("Successfully redeemed points.");
                 setAlertOpen(true);
-                setTimeout(() => {
-                    setAlertOpen(false);
-                    cleanAlert();
-                }, 2000);
+                cancelTimeout();
+                setTimeoutId(
+                    setTimeout(() => {
+                        setAlertOpen(false);
+                    }, 2000)
+                );
             } else {
                 setCurrentAlert("wrong");
                 setAlertMessage("You are not eligible to redeem these points.");
                 setAlertOpen(true);
-                setTimeout(() => {
-                    setAlertOpen(false);
-                    cleanAlert();
-                }, 2000);
+                cancelTimeout();
+                setTimeoutId(
+                    setTimeout(() => {
+                        setAlertOpen(false);
+                    }, 2000)
+                );
             }
         } else {
             setCurrentAlert("error");
             setAlertMessage("Something went wrong. Try again later.");
             setAlertOpen(true);
-            setTimeout(() => {
-                setAlertOpen(false);
-                cleanAlert();
-            }, 2000);
+            cancelTimeout();
+            setTimeoutId(
+                setTimeout(() => {
+                    setAlertOpen(false);
+                }, 2000)
+            );
         }
         setIsRedeeming(false);
     };
@@ -90,14 +89,11 @@ const RewardsShop = () => {
     const handleRedeemReward = async (rewardType: string) => {
         setConfirmationOpen(false);
         cleanConfirmation();
-        cleanAlert();
         setAlertOpen(false);
         setIsRedeeming(true);
-        const { data, status } = await request.get("/rewards/buy", {
-            params: {
-                userId: uid,
-                rewardType: rewardType,
-            },
+        const { data, status } = await request.post("/rewards/bonus", {
+            userId: uid,
+            rewardType: rewardType,
         });
         if (status == 200) {
             const points = await getUserPoints();
@@ -105,28 +101,34 @@ const RewardsShop = () => {
             setCurrentAlert("success");
             setAlertMessage("Successfully redeemed reward.");
             setAlertOpen(true);
-            setTimeout(() => {
-                setAlertOpen(false);
-                cleanAlert();
-            }, 2000);
+            cancelTimeout();
+            setTimeoutId(
+                setTimeout(() => {
+                    setAlertOpen(false);
+                }, 2000)
+            );
         } else if (status == 406) {
             setCurrentAlert("wrong");
             setAlertMessage(
                 "You have insufficient points to redeem this reward."
             );
             setAlertOpen(true);
-            setTimeout(() => {
-                setAlertOpen(false);
-                cleanAlert();
-            }, 2000);
+            cancelTimeout();
+            setTimeoutId(
+                setTimeout(() => {
+                    setAlertOpen(false);
+                }, 2000)
+            );
         } else {
             setCurrentAlert("error");
             setAlertMessage("Something went wrong. Try again later.");
             setAlertOpen(true);
-            setTimeout(() => {
-                setAlertOpen(false);
-                cleanAlert();
-            }, 2000);
+            cancelTimeout();
+            setTimeoutId(
+                setTimeout(() => {
+                    setAlertOpen(false);
+                }, 2000)
+            );
             console.log(data.message);
         }
         setIsRedeeming(false);
@@ -135,6 +137,21 @@ const RewardsShop = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [pathname]);
+
+    useEffect(() => {
+        const id = setTimeout(() => {
+            console.log("This will not run if you cancel");
+        }, 5000);
+        setTimeoutId(id);
+
+        return () => clearTimeout(id); // cleanup on unmount
+    }, []);
+
+    const cancelTimeout = () => {
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+    };
 
     return (
         <div>

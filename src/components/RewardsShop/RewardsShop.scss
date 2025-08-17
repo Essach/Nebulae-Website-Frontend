@@ -344,32 +344,6 @@
     text-shadow: 0px 0px 10px rgba($neonYellow, 0.25);
 }
 
-.rewardsAlert {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translate(-50%, -100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    z-index: 100;
-    background: white;
-    padding: 15px 35px;
-    border-radius: 15px;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    opacity: 1;
-
-    p {
-        color: black;
-        font-size: 1.1rem;
-        text-shadow: 0px 0px 1px black;
-        font-weight: 400;
-        padding-right: 15px;
-        padding-top: 3px;
-    }
-}
-
 .backdrop {
     display: flex;
     align-items: center;
@@ -428,14 +402,6 @@
     }
 }
 
-.alertHidden {
-    animation: fadeOut 0.5s forwards;
-}
-
-.alertVisible {
-    animation: slideDown 0.5s forwards;
-}
-
 .redeemingScreen {
     position: fixed;
     width: 100vw;
@@ -447,6 +413,40 @@
     top: 0;
     left: 0;
     z-index: 40;
+}
+
+.rewardsAlert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 100;
+    background: white;
+    padding: 15px 35px;
+    border-radius: 15px;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+
+    p {
+        color: black;
+        font-size: 1.1rem;
+        text-shadow: 0px 0px 1px black;
+        font-weight: 400;
+        padding-right: 15px;
+        padding-top: 3px;
+    }
+}
+
+.alertHidden {
+    animation: fadeOut 0.5s forwards;
+}
+
+.alertVisible {
+    animation: slideDown 0.5s forwards;
 }
 
 @keyframes slideDown {
@@ -461,11 +461,15 @@
 }
 
 @keyframes fadeOut {
-    from {
+    0% {
         opacity: 1;
         transform: translateX(-50%) translateY(0);
     }
-    to {
+    99% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
         opacity: 0;
         transform: translateX(-50%) translateY(0);
         display: none;
