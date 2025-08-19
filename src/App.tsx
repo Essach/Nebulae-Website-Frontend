@@ -10,6 +10,7 @@ import Contact from "./components/Contact/Contact";
 import Socials from "./components/Socials/Socials";
 import RewardsShop from "./components/RewardsShop/RewardsShop";
 import Footer from "./components/Footer/Footer";
+import WrongRoute from "./components/WrongRoute/WrongRoute";
 
 const App = () => {
     return (
@@ -36,7 +37,9 @@ const App = () => {
                                 path="/rewards"
                                 Component={RewardsShop}
                             ></Route>
+                            <Route path="*" Component={WrongRoute} />
                         </Routes>
+
                         <Footer />
                     </div>
                 </Router>
