@@ -30,6 +30,12 @@
             margin-top: 0rem;
             margin-left: 0.5rem;
         }
+
+        @media only screen and (max-width: 1280px) {
+            width: 120px;
+            margin-top: 0.6rem;
+            margin-left: 0.8rem;
+        }
     }
 
     .navbar {
@@ -47,6 +53,10 @@
 
         @media only screen and (max-width: 450px) {
             display: none;
+        }
+
+        @media only screen and (max-width: 1281px) {
+            padding: 0 1rem;
         }
 
         .navigations {
@@ -250,6 +260,10 @@
                 font-size: 1.1rem;
                 font-weight: 500;
                 white-space: nowrap;
+
+                @media only screen and (max-width: 1280px) {
+                    font-size: 1rem;
+                }
             }
         }
     }
@@ -262,6 +276,10 @@
     .navbarLoggedLong {
         width: 1000px !important;
         transition: width 0.3s ease;
+
+        @media only screen and (max-width: 1280px) {
+            width: 950px !important;
+        }
     }
 
     .navbarLoading {
