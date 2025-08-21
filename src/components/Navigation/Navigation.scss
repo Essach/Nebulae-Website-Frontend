@@ -398,7 +398,7 @@
                 .points {
                     color: $neonBlue;
                     text-shadow: 0px 0px 4px $neonBlue;
-                    font-size: 1.1rem;
+                    font-size: 0.8rem;
                     font-weight: 500;
                     width: 120px;
                     display: flex;
@@ -416,12 +416,12 @@
                 .user {
                     color: $neonPurple;
                     text-shadow: 0px 0px 4px $neonPurple;
-                    font-size: 1.1rem;
+                    font-size: 0.8rem;
                     font-weight: 500;
                     white-space: nowrap;
 
                     @media only screen and (max-width: 450px) {
-                        font-size: 0.9rem;
+                        font-size: 0.6rem;
                     }
                 }
             }

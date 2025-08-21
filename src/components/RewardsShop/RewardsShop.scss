@@ -87,6 +87,8 @@
                 @media only screen and (max-width: 450px) {
                     flex-direction: column;
                     width: 95vw;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr 1fr;
                 }
 
                 .infoLabel {
@@ -120,11 +122,11 @@
                             white-space: nowrap;
 
                             @media only screen and (max-width: 450px) {
-                                font-size: 1.4rem;
+                                font-size: 1.1rem;
                             }
 
                             span {
-                                font-size: 0.8rem;
+                                font-size: 0.7rem;
                                 font-weight: 400;
                             }
                         }
