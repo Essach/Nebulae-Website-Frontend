@@ -3,7 +3,8 @@ import nitro from "../../images/nitro.png";
 import woo from "../../images/woo.png";
 import discord from "../../images/discord.png";
 const DISCORD_CLIENT_ID = "1404089022480908389";
-const REDIRECT_URI = "http://localhost:8000/api/auth/discord/callback";
+const REDIRECT_URI =
+    "https://nebulae-website-backend.vercel.app/api/auth/discord/callback";
 const OAUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&redirect_uri=${encodeURIComponent(
     REDIRECT_URI
 )}&response_type=code&scope=identify%20email`;
